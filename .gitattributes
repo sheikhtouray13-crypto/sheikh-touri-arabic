@@ -1,0 +1,11 @@
+# توحيد نهايات الأسطر
+* text=auto
+
+# ملفات ثنائية
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
