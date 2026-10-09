@@ -7,6 +7,8 @@
 An interactive web app for learning simplified Modern Standard Arabic through
 **everyday conversations**, with **English translation**, **audio**, and **interactive quizzes**.
 
+> 🔗 **الموقع المنشور مباشرة:** <https://sheikhtouray13-crypto.github.io/sheikh-touri-arabic/>
+
 ---
 
 ## ✨ المميزات | Features
@@ -95,6 +97,25 @@ An interactive web app for learning simplified Modern Standard Arabic through
 | `#c69a2d` / `#f4cd63` | اللون الذهبي للتمييز والجوائز |
 
 كل الألوان معرّفة كمتغيّرات CSS في `:root` داخل `styles.css`، ويمكن تغييرها من مكان واحد.
+
+---
+
+## 🌐 النشر عبر GitHub Pages | Deployment
+
+هذا الموقع منشور تلقائياً عبر **GitHub Pages** من الفرع `main`.
+
+- المستودع: <https://github.com/sheikhtouray13-crypto/sheikh-touri-arabic>
+- الموقع: <https://sheikhtouray13-crypto.github.io/sheikh-touri-arabic/>
+
+**لتحديث الموقع بعد أي تعديل:**
+
+```bash
+git add .
+git commit -m "وصف التحديث"
+git push
+```
+
+سيتحدّث الموقع المباشر تلقائياً بعد دقيقة تقريباً من كل رفعة (push).
 
 ---
 
