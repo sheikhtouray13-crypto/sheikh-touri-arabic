@@ -1,0 +1,14 @@
+# ملفات النظام
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# المحرّرات
+.vscode/
+.idea/
+
+# السجلات ومؤقتات
+*.log
+
+# ملفات جلسات OpenCode (خاصة ولا تُنشر)
+ses_*.json
