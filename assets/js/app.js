@@ -1,6 +1,6 @@
 /* =========================================================
    Arabic Lessons — App Logic
-   الإمام أحمد شيخ توري | Imam Ahmad Sheikh Touri
+   الإمام أحمد شيخ توري | Imam Ahmad Sheikh Touray
    ========================================================= */
 
 /* ---------------- i18n (interface strings) ---------------- */
@@ -114,14 +114,14 @@ const UI = {
     heroBadge: "Interactive app with English translation",
     heroTitle1: "Learn Arabic through real",
     heroTitle2: "conversations",
-    heroLead: "Fun lessons for everyday situations, with English translation, audio pronunciation and interactive quizzes. By Imam Ahmad Sheikh Touri.",
+    heroLead: "Fun lessons for everyday situations, with English translation, audio pronunciation and interactive quizzes. By Imam Ahmad Sheikh Touray.",
     heroCtaLessons: "Start lessons",
     heroCtaHow: "How it works",
     statLessons: "interactive lessons",
     statLevels: "levels",
     statFree: "100% free",
     teacherRole: "Imam and Arabic language teacher",
-    teacherBio: "With Imam Ahmad Sheikh Touri, we learn simplified Modern Standard Arabic with a focus on conversation and real situations for speakers of other languages.",
+    teacherBio: "With Imam Ahmad Sheikh Touray, we learn simplified Modern Standard Arabic with a focus on conversation and real situations for speakers of other languages.",
     tagFusha: "Simplified MSA",
     tagConv: "Conversation",
     tagTrans: "English translation",
@@ -150,8 +150,8 @@ const UI = {
     notStarted: "Not started",
     empty: "No lessons match your search.",
     aboutKicker: "About the instructor",
-    aboutTitle: "Imam Ahmad Sheikh Touri",
-    aboutP: "Imam Ahmad Sheikh Touri is a specialist in teaching Arabic to speakers of other languages, offering simple lessons based on real situations with English translation to make understanding easy.",
+    aboutTitle: "Imam Ahmad Sheikh Touray",
+    aboutP: "Imam Ahmad Sheikh Touray is a specialist in teaching Arabic to speakers of other languages, offering simple lessons based on real situations with English translation to make understanding easy.",
     howKicker: "Study method",
     howTitle: "How to study",
     step1t: "Choose a lesson",
@@ -189,7 +189,7 @@ const UI = {
     footerContact: "Contact",
     rights: "All rights reserved",
     madeBy: "Created by",
-    author: "Imam Ahmad Sheikh Touri",
+    author: "Imam Ahmad Sheikh Touray",
     toastTransOn: "Translation shown",
     toastTransOff: "Translation hidden",
     toastTrOn: "Transliteration shown",

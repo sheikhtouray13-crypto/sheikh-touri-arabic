@@ -1,5 +1,5 @@
 # دروس اللغة العربية للناطقين بغيرها — الإمام أحمد شيخ توري
-# Arabic Lessons for Speakers of Other Languages — Imam Ahmad Sheikh Touri
+# Arabic Lessons for Speakers of Other Languages — Imam Ahmad Sheikh Touray
 
 موقع/تطبيق تفاعلي لتعلّم العربية الفصحى المبسّطة من خلال **المحادثات والمواقف اليومية**،
 مع **ترجمة إنجليزية** و**نُطق صوتي** و**اختبارات تفاعلية**.
