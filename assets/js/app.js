@@ -7,7 +7,7 @@
 const UI = {
   ar: {
     brand: "دروس العربية",
-    brandSub: "لغير الناطقين بها",
+    brandSub: "للناطقين بغيرها",
     navHome: "الرئيسية",
     navLessons: "الدروس",
     navAbout: "عن المدرّب",
@@ -22,7 +22,7 @@ const UI = {
     statLevels: "مستويات",
     statFree: "مجاني %100",
     teacherRole: "إمام ومعلّم اللغة العربية",
-    teacherBio: "نتعلّم مع الإمام أحمد شيخ توري العربية بالفصحى المبسّطة مع تركيز على المحادثة والمواقف الحقيقية لغير الناطقين بها.",
+    teacherBio: "نتعلّم مع الإمام أحمد شيخ توري العربية بالفصحى المبسّطة مع تركيز على المحادثة والمواقف الحقيقية للناطقين بغيرها.",
     tagFusha: "فصحى مبسّطة",
     tagConv: "محادثة",
     tagTrans: "ترجمة إنجليزية",
@@ -52,7 +52,7 @@ const UI = {
     empty: "لا توجد دروس مطابقة لبحثك.",
     aboutKicker: "عن المدرّب",
     aboutTitle: "الإمام أحمد شيخ توري",
-    aboutP: "الإمام أحمد شيخ توري، معلّم متخصّص في تعليم اللغة العربية لغير الناطقين بها، يقدّم دروساً مبسّطة تعتمد على المواقف الحقيقية والترجمة الإنجليزية لتسهيل الفهم.",
+    aboutP: "الإمام أحمد شيخ توري، معلّم متخصّص في تعليم اللغة العربية للناطقين بغيرها، يقدّم دروساً مبسّطة تعتمد على المواقف الحقيقية والترجمة الإنجليزية لتسهيل الفهم.",
     howKicker: "طريقة الدراسة",
     howTitle: "كيف تدرس؟",
     step1t: "اختر الدرس",
@@ -85,7 +85,7 @@ const UI = {
     resultGood: "جيد جداً! أنت على الطريق.",
     resultOk: "لا بأس، راجع الدرس وحاول مرة أخرى.",
     resultFail: "راجع الدرس ثم أعد الاختبار.",
-    footerAbout: "موقع تعليمي لتعليم العربية لغير الناطقين بها.",
+    footerAbout: "موقع تعليمي لتعليم العربية للناطقين بغيرها.",
     footerLinks: "روابط",
     footerContact: "تواصل",
     rights: "جميع الحقوق محفوظة",
@@ -100,12 +100,13 @@ const UI = {
     toastLang: "تم تغيير اللغة",
     toastDone: "أحسنت! أكملت الدرس 🎉",
     savedHint: "يُحفظ تقدّمك تلقائياً",
+    downloadPdf: "تحميل الكتاب PDF",
     dialogues: "جُمل",
     words: "كلمات"
   },
   en: {
     brand: "Arabic Lessons",
-    brandSub: "for non-native speakers",
+    brandSub: "for speakers of other languages",
     navHome: "Home",
     navLessons: "Lessons",
     navAbout: "Instructor",
@@ -120,7 +121,7 @@ const UI = {
     statLevels: "levels",
     statFree: "100% free",
     teacherRole: "Imam and Arabic language teacher",
-    teacherBio: "With Imam Ahmad Sheikh Touri, we learn simplified Modern Standard Arabic with a focus on conversation and real situations for non-native speakers.",
+    teacherBio: "With Imam Ahmad Sheikh Touri, we learn simplified Modern Standard Arabic with a focus on conversation and real situations for speakers of other languages.",
     tagFusha: "Simplified MSA",
     tagConv: "Conversation",
     tagTrans: "English translation",
@@ -150,7 +151,7 @@ const UI = {
     empty: "No lessons match your search.",
     aboutKicker: "About the instructor",
     aboutTitle: "Imam Ahmad Sheikh Touri",
-    aboutP: "Imam Ahmad Sheikh Touri is a specialist in teaching Arabic to non-native speakers, offering simple lessons based on real situations with English translation to make understanding easy.",
+    aboutP: "Imam Ahmad Sheikh Touri is a specialist in teaching Arabic to speakers of other languages, offering simple lessons based on real situations with English translation to make understanding easy.",
     howKicker: "Study method",
     howTitle: "How to study",
     step1t: "Choose a lesson",
@@ -183,7 +184,7 @@ const UI = {
     resultGood: "Very good! You're on the right track.",
     resultOk: "Not bad, review the lesson and try again.",
     resultFail: "Review the lesson, then retake the quiz.",
-    footerAbout: "An educational site for teaching Arabic to non-native speakers.",
+    footerAbout: "An educational site for teaching Arabic to speakers of other languages.",
     footerLinks: "Links",
     footerContact: "Contact",
     rights: "All rights reserved",
@@ -198,13 +199,14 @@ const UI = {
     toastLang: "Language changed",
     toastDone: "Well done! You completed the lesson 🎉",
     savedHint: "Your progress is saved automatically",
+    downloadPdf: "Download PDF book",
     dialogues: "lines",
     words: "words"
   }
 };
 
 /* ---------------- State ---------------- */
-const STORAGE_KEY = "arabic_lessons_v1";
+const STORAGE_KEY = "arabic_lessons_v2";
 const state = {
   lang: "ar",
   theme: "light",

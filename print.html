@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>دروس العربية للناطقين بغيرها — الإمام أحمد شيخ توري</title>
+<style>
+  :root{
+    --ink:#1e293b; --muted:#64748b; --brand:#1e3a8a; --brand2:#2563eb;
+    --gold:#b8860b; --gold2:#f4cd63; --line:#e2e8f0; --soft:#f8fafc;
+  }
+  @page { size: A4; margin: 15mm 13mm; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html,body{ margin:0; padding:0; background:#fff; }
+  body{
+    direction: rtl;
+    font-family: "Amiri", "Scheherazade New", "Traditional Arabic", "Sakkal Majalla", "Segoe UI", "Tahoma", serif;
+    color: var(--ink); font-size: 12.5pt; line-height: 1.85;
+  }
+  .en{ direction: ltr; unicode-bidi: isolate; font-family: "Segoe UI", Tahoma, sans-serif; }
+  h1,h2,h3,h4{ margin:0 0 .3em; }
+
+  /* ---- Cover ---- */
+  .cover{ text-align:center; padding-top: 16vh; page-break-after: always; }
+  .cover .logo{
+    width:104px;height:104px;border-radius:26px;margin:0 auto 20px;
+    display:grid;place-items:center;
+    background:linear-gradient(135deg,#1e3a8a,#2563eb);
+    color:#f4cd63; font-size:56px; font-weight:700;
+  }
+  .cover h1{ font-size: 34pt; color: var(--brand); }
+  .cover h2{ font-size: 15pt; color: var(--gold); font-weight:700; margin-bottom: 24px; }
+  .cover .rule{ width: 130px; height:4px; background: var(--gold); border-radius:4px; margin: 22px auto; }
+  .cover .sub{ color: var(--muted); font-size: 12pt; margin: .25em 0; }
+  .cover .author{ margin-top: 40px; font-size: 16pt; font-weight:700; color: var(--brand); }
+  .cover .meta{ margin-top: 6px; color: var(--muted); font-size: 10.5pt; }
+
+  /* ---- TOC ---- */
+  .toc{ page-break-after: always; }
+  .toc h2{ color: var(--brand); font-size: 19pt; border-bottom: 2px solid var(--line); padding-bottom: 6px; }
+  .toc ol{ padding-inline-start: 1.3em; }
+  .toc li{ margin: .3em 0; }
+  .toc .lvl{ color: var(--gold); font-size: 10pt; }
+
+  /* ---- Lesson ---- */
+  .lesson{ page-break-before: always; }
+  .lesson-head{ border-bottom: 3px solid var(--brand); padding-bottom: 8px; margin-bottom: 12px; }
+  .lesson-head .top{ display:flex; align-items:center; gap:12px; }
+  .lesson-head .icon{ font-size: 24pt; }
+  .lesson-head h2{ font-size: 21pt; color: var(--brand); margin:0; }
+  .lesson-head .ent{ font-size: 12pt; color: var(--muted); font-weight:700; }
+  .lesson-head .level{
+    margin-inline-start:auto; background: var(--brand); color:#fff;
+    border-radius: 999px; padding: 3px 14px; font-size: 10pt; white-space:nowrap;
+  }
+  .summary{ background: var(--soft); border:1px solid var(--line); border-radius:10px; padding:8px 12px; margin-bottom: 12px; }
+  .summary .en{ color: var(--muted); font-size: 10.5pt; }
+
+  h3.sec{ color: var(--brand); font-size: 14pt; margin: 16px 0 4px; border-inline-start: 5px solid var(--gold); padding-inline-start: 10px; }
+
+  table{ width:100%; border-collapse: collapse; margin: 8px 0 4px; }
+  th,td{ border:1px solid var(--line); padding: 6px 8px; vertical-align: top; text-align: start; }
+  thead th{ background: var(--brand); color:#fff; font-weight:700; }
+  tr{ page-break-inside: avoid; }
+  .sp{ white-space: nowrap; font-weight:700; color: var(--brand); width: 13%; }
+  .tr{ color: var(--muted); font-size: 10pt; direction: ltr; unicode-bidi: isolate; }
+  .ar2{ font-size: 13pt; }
+  .en2{ direction: ltr; unicode-bidi: isolate; font-family:"Segoe UI",Tahoma,sans-serif; color:#334155; }
+
+  .vocab .v-ar{ font-weight:700; width: 34%; }
+  .vocab .v-tr{ color: var(--muted); font-size:10pt; direction:ltr; unicode-bidi:isolate; width:30%; }
+
+  .quiz .q{ margin: 10px 0 2px; font-weight:700; }
+  .quiz ol{ padding-inline-start: 1.4em; margin: 2px 0 0; }
+  .quiz li{ margin: .15em 0; }
+  .quiz li.correct{ color: #067647; font-weight:700; }
+  .quiz li.correct::after{ content: "  ✓"; }
+
+  footer.pfoot{ margin-top: 14px; border-top:1px solid var(--line); padding-top:6px; color: var(--muted); font-size: 9pt; text-align:center; }
+</style>
+</head>
+<body>
+<div id="doc"></div>
+
+<script src="assets/js/lessons.js"></script>
+<script>
+(function(){
+  var esc = function(s){ return String(s == null ? "" : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); };
+
+  var today = new Date().toLocaleDateString('ar-EG', {year:'numeric', month:'long', day:'numeric'});
+  var html = '';
+
+  /* Cover */
+  html += ''
+    + '<section class="cover">'
+    +   '<div class="logo">أ</div>'
+    +   '<h1>دروس العربية</h1>'
+    +   '<h2>للناطقين بغيرها</h2>'
+    +   '<div class="rule"></div>'
+    +   '<p class="sub">محادثات ومواقف يومية مع ترجمة إنجليزية ونقل صوتي</p>'
+    +   '<p class="sub en">Everyday conversations with English translation &amp; transliteration</p>'
+    +   '<div class="author">الإمام أحمد شيخ توري</div>'
+    +   '<p class="meta en">Imam Ahmad Sheikh Touri</p>'
+    +   '<p class="meta">' + esc(today) + ' · ' + LESSONS.length + ' درساً</p>'
+    + '</section>';
+
+  /* Table of contents */
+  html += '<section class="toc"><h2>الفهرس · Table of Contents</h2><ol>';
+  LESSONS.forEach(function(l){
+    html += '<li>' + esc(l.icon || '') + ' ' + esc(l.title.ar)
+          + ' <span class="en">' + esc(l.title.en) + '</span>'
+          + ' <span class="lvl">(' + esc(l.level) + ')</span></li>';
+  });
+  html += '</ol></section>';
+
+  /* Lessons */
+  LESSONS.forEach(function(l){
+    html += '<section class="lesson">';
+    html += '<div class="lesson-head"><div class="top">'
+          +   '<span class="icon">' + esc(l.icon || '') + '</span>'
+          +   '<div><h2>' + esc(l.title.ar) + '</h2>'
+          +   '<div class="ent en">' + esc(l.title.en) + '</div></div>'
+          +   '<span class="level">' + esc(l.level) + '</span>'
+          + '</div></div>';
+    html += '<div class="summary"><div>' + esc(l.summary.ar) + '</div>'
+          +   '<div class="en">' + esc(l.summary.en) + '</div></div>';
+
+    /* Dialogue */
+    html += '<h3 class="sec">الحوار · Dialogue</h3>';
+    html += '<table><thead><tr>'
+          +   '<th class="sp">المتحدث</th><th>العربية</th><th>النقل الصوتي</th><th>English</th>'
+          + '</tr></thead><tbody>';
+    (l.dialogue || []).forEach(function(d){
+      var sp = d.sp || {};
+      html += '<tr>'
+            +   '<td class="sp">' + esc(sp.ar) + '<div class="en" style="font-weight:400;color:#64748b">' + esc(sp.en) + '</div></td>'
+            +   '<td class="ar2">' + esc(d.ar) + '</td>'
+            +   '<td class="tr">' + esc(d.tr) + '</td>'
+            +   '<td class="en2">' + esc(d.en) + '</td>'
+            + '</tr>';
+    });
+    html += '</tbody></table>';
+
+    /* Vocabulary */
+    html += '<h3 class="sec">المفردات · Vocabulary</h3>';
+    html += '<table class="vocab"><thead><tr>'
+          +   '<th class="v-ar">الكلمة</th><th>النقل الصوتي</th><th>English</th>'
+          + '</tr></thead><tbody>';
+    (l.vocab || []).forEach(function(v){
+      html += '<tr><td class="v-ar ar2">' + esc(v.ar) + '</td>'
+            +   '<td class="v-tr">' + esc(v.tr) + '</td>'
+            +   '<td class="en2">' + esc(v.en) + '</td></tr>';
+    });
+    html += '</tbody></table>';
+
+    /* Quiz */
+    html += '<h3 class="sec">الاختبار · Quiz</h3><div class="quiz">';
+    (l.quiz || []).forEach(function(q, qi){
+      html += '<div class="q">' + (qi + 1) + '. ' + esc(q.q.ar)
+            + ' <span class="en" style="font-weight:400;color:#64748b">' + esc(q.q.en) + '</span></div>';
+      html += '<ol type="a">';
+      (q.options || []).forEach(function(o, oi){
+        var cls = (oi === q.answer) ? ' class="correct"' : '';
+        var en = (o.en && o.en !== o.ar)
+          ? ' <span class="en" style="color:#94a3b8">' + esc(o.en) + '</span>' : '';
+        html += '<li' + cls + '>' + esc(o.ar) + en + '</li>';
+      });
+      html += '</ol>';
+    });
+    html += '</div>';
+
+    html += '<footer class="pfoot">دروس العربية للناطقين بغيرها — الإمام أحمد شيخ توري · ' + esc(l.title.ar) + '</footer>';
+    html += '</section>';
+  });
+
+  document.getElementById('doc').innerHTML = html;
+  document.title = 'دروس العربية للناطقين بغيرها — الإمام أحمد شيخ توري';
+})();
+</script>
+</body>
+</html>

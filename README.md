@@ -1,5 +1,5 @@
-# دروس اللغة العربية لغير الناطقين بها — الإمام أحمد شيخ توري
-# Arabic Lessons for Non-Native Speakers — Imam Ahmad Sheikh Touri
+# دروس اللغة العربية للناطقين بغيرها — الإمام أحمد شيخ توري
+# Arabic Lessons for Speakers of Other Languages — Imam Ahmad Sheikh Touri
 
 موقع/تطبيق تفاعلي لتعلّم العربية الفصحى المبسّطة من خلال **المحادثات والمواقف اليومية**،
 مع **ترجمة إنجليزية** و**نُطق صوتي** و**اختبارات تفاعلية**.
@@ -13,7 +13,8 @@ An interactive web app for learning simplified Modern Standard Arabic through
 
 ## ✨ المميزات | Features
 
-- 💬 **8 دروس حوارية** في مواقف يومية (التحيات، المطار، السوق، المطعم، الطبيب، البنك، الطريق، الفندق).
+- 💬 **13 درساً حوارياً** في مواقف يومية (التحيات، المطار، السوق، المطعم، الطبيب، البنك، الطريق، الفندق، الغرفة، المطبخ، المسجد، المدرسة، البيت).
+- 📄 **تحميل الكتاب PDF** بكل الدروس (حوارات ومفردات) للقراءة والطباعة دون اتصال.
 - 🌐 **تبديل فوري للواجهة** بين العربية والإنجليزية (زر `English` / `العربية`).
 - 🔤 **ترجمة إنجليزية + نقل صوتي (transliteration)** لكل جملة، مع إمكانية إظهارها/إخفائها.
 - 🔊 **نُطق صوتي بالعربية** لكل جملة وكل كلمة (يعمل عبر Web Speech API في المتصفح).
@@ -46,8 +47,10 @@ An interactive web app for learning simplified Modern Standard Arabic through
 ```
 شيخ توري/
 ├─ index.html               # الصفحة الرئيسية (الهيكل + الهيدر + الفوتر)
+├─ print.html               # نسخة للطباعة تُستخدم لتوليد ملف PDF
 ├─ assets/
 │  ├─ css/styles.css        # نظام التصميم والألوان (فاتح/داكن، RTL/LTR)
+│  ├─ arabic-lessons.pdf    # الكتاب كاملاً كملف PDF للتحميل
 │  └─ js/
 │     ├─ lessons.js         # محتوى الدروس (حوارات + مفردات + أسئلة) بالعربية والإنجليزية
 │     └─ app.js             # منطق التطبيق: التوجيه، اللغة، النُطق، الاختبارات، التقدّم
@@ -83,6 +86,21 @@ An interactive web app for learning simplified Modern Standard Arabic through
 ```
 
 سيظهر الدرس تلقائياً في الصفحة الرئيسية، وتُحسب نتيجته ويُحفظ تقدّمه بدون أي تعديل آخر.
+
+---
+
+## 📄 ملف PDF للتحميل | Downloadable PDF
+
+يتوفّر الكتاب كاملاً كملف PDF في `assets/arabic-lessons.pdf`، ويوجد زرّ 📄 في أعلى الصفحة وأسفلها لتحميله.
+
+لتحديثه بعد أي تعديل على الدروس، شغّل من مجلد المشروع:
+
+```powershell
+$u = ([uri]("file:///" + ((Resolve-Path .\print.html).Path -replace '\\','/'))).AbsoluteUri
+& "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless=new --disable-gpu --no-pdf-header-footer "--print-to-pdf=assets\arabic-lessons.pdf" $u
+```
+
+أو ببساطة: افتح `print.html` في Chrome ثم **طباعة ← الحفظ كـ PDF**.
 
 ---
 

@@ -1,5 +1,5 @@
 /* =========================================================
-   دروس العربية لغير الناطقين — محتوى الدروس
+   دروس العربية للناطقين بغيرها — محتوى الدروس
    Arabic Lessons for Non-Native Speakers — Lesson Data
    الإمام أحمد شيخ توري | Imam Ahmad Sheikh Touri
    ========================================================= */
@@ -306,6 +306,206 @@ const LESSONS = [
       { q: { ar: "«مَجّانِيّ» مَعْناها:", en: "«majjānī» means:" }, options: [{ ar: "Free of charge", en: "Free of charge" }, { ar: "Expensive", en: "Expensive" }, { ar: "Closed", en: "Closed" }], answer: 0 },
       { q: { ar: "كَيْفَ تَسْأَل عَنْ سِعْرِ اللَّيْلَة؟", en: "How do you ask about the price per night?" }, options: [{ ar: "كَمْ سِعْرُ اللَّيْلَة؟", en: "kam siʿru l-layla?" }, { ar: "أَيْنَ الغُرْفَة؟", en: "ayna l-ghurfa?" }, { ar: "مَتى الإفْطار؟", en: "matā l-ifṭār?" }], answer: 0 },
       { q: { ar: "أَيْنَ الكَلِمَةُ السِّرِّيَّة؟", en: "Where is the password (Wi-Fi)?" }, options: [{ ar: "عَلى بِطاقَةِ الغُرْفَة", en: "ʿalā biṭāqati l-ghurfa" }, { ar: "في المَطْعَم", en: "fī l-maṭʿam" }, { ar: "عَلى الباب", en: "ʿalā l-bāb" }], answer: 0 }
+    ]
+  },
+  {
+    id: "room",
+    icon: "🛏️",
+    level: "A1",
+    accent: "#0891b2",
+    title: { ar: "الغرفة", en: "The Room" },
+    summary: {
+      ar: "تعرف على أغراض الغرفة وأماكنها في الحديث اليومي.",
+      en: "Learn room items and how to talk about them in daily life."
+    },
+    dialogue: [
+      { sp: { ar: "أحمد", en: "Ahmad" }, ar: "هَلْ تَسْتَطيعُ أَنْ تُساعدَني لَوْ سَمَحْتَ؟", en: "Can you help me, please?", tr: "hal tastaṭīʿu an tusāʿidanī law samaḥta?" },
+      { sp: { ar: "عمر", en: "Omar" }, ar: "نَعَمْ، بِكُلِّ سُرُور. ماذا تُريدُ؟", en: "Yes, with pleasure. What do you want?", tr: "naʿam, bi-kulli surūr. mādhā turīd?" },
+      { sp: { ar: "أحمد", en: "Ahmad" }, ar: "أَيْنَ السَّريرُ في غُرْفَتي؟", en: "Where is the bed in my room?", tr: "ayna s-sarīr fī ghurfatī?" },
+      { sp: { ar: "عمر", en: "Omar" }, ar: "السَّريرُ بِجانِبِ الحائِطِ الأَيْمَن.", en: "The bed is next to the right wall.", tr: "as-sarīr bijānibi l-ḥāʾiṭi l-ayman" },
+      { sp: { ar: "أحمد", en: "Ahmad" }, ar: "وَأَيْنَ الخِزانَةُ؟", en: "And where is the wardrobe?", tr: "wa ayna l-khizāna?" },
+      { sp: { ar: "عمر", en: "Omar" }, ar: "هِيَ أَمامَ البابِ قَليلاً.", en: "It's just in front of the door.", tr: "hiya amāma l-bābi qalīlan" },
+      { sp: { ar: "أحمد", en: "Ahmad" }, ar: "شُكْراً جَزيلاً لَكَ.", en: "Thank you very much.", tr: "shukran jazīlan laka" }
+    ],
+    vocab: [
+      { ar: "الغُرْفَة", en: "The room", tr: "al-ghurfa" },
+      { ar: "السَّرير", en: "The bed", tr: "as-sarīr" },
+      { ar: "الخِزانَة", en: "The wardrobe/closet", tr: "al-khizāna" },
+      { ar: "المِرْآة", en: "The mirror", tr: "al-mirʾāh" },
+      { ar: "الكُرْسيّ", en: "The chair", tr: "al-kursī" },
+      { ar: "المائِدَة", en: "The table", tr: "al-māʾida" },
+      { ar: "النَّافِذَة", en: "The window", tr: "an-nāfidha" },
+      { ar: "الباب", en: "The door", tr: "al-bāb" },
+      { ar: "السَّجّادَة", en: "The carpet/rug", tr: "as-sajjāda" }
+    ],
+    quiz: [
+      { q: { ar: "ماذا نَجِدُ في غُرْفَةِ النَّوْمِ؟", en: "What do we find in the bedroom?" }, options: [{ ar: "السَّرير", en: "The bed" }, { ar: "المِرْحاض", en: "The toilet" }, { ar: "المَوْقِد", en: "The stove" }], answer: 0 },
+      { q: { ar: "«النَّافِذَة» مَعْناها:", en: "«an-nāfizha» means:" }, options: [{ ar: "Window", en: "Window" }, { ar: "Door", en: "Door" }, { ar: "Wall", en: "Wall" }], answer: 0 },
+      { q: { ar: "أَيْنَ نَضَعُ الثِّيابَ؟", en: "Where do we put clothes?" }, options: [{ ar: "الخِزانَة", en: "The wardrobe" }, { ar: "السَّجّادَة", en: "The carpet" }, { ar: "الكُرْسيّ", en: "The chair" }], answer: 0 },
+      { q: { ar: "«الكُرْسيّ» هُوَ:", en: "«al-kursī» is:" }, options: [{ ar: "Chair", en: "Chair" }, { ar: "Table", en: "Table" }, { ar: "Bed", en: "Bed" }], answer: 0 },
+      { q: { ar: "نَنْظُرُ في ____ قَبْلَ الخُروجِ.", en: "We look in the ____ before going out." }, options: [{ ar: "المِرْآة", en: "Mirror" }, { ar: "السَّرير", en: "Bed" }, { ar: "المائِدَة", en: "Table" }], answer: 0 }
+    ]
+  },
+  {
+    id: "kitchen",
+    icon: "🍳",
+    level: "A1",
+    accent: "#ea580c",
+    title: { ar: "المطبخ", en: "The Kitchen" },
+    summary: {
+      ar: "أسماء الأواني وأفعال الطهي الشائعة في المطبخ.",
+      en: "Names of kitchenware and common cooking verbs."
+    },
+    dialogue: [
+      { sp: { ar: "فاطِمَة", en: "Fatima" }, ar: "هَلْ تُساعدُني في المَطْبَخِ يا أُمّي؟", en: "Will you help me in the kitchen, mom?", tr: "hal tusāʿidunī fī l-maṭbakhi yā ummī?" },
+      { sp: { ar: "الأُمّ", en: "Mother" }, ar: "نَعَمْ يا بُنَيَّتي. اِغْسِلِي الخُضارَ أوّلاً.", en: "Yes, my daughter. Wash the vegetables first.", tr: "naʿam yā bunayyatī. ighsilī l-khuḍāra awwalan" },
+      { sp: { ar: "فاطِمَة", en: "Fatima" }, ar: "أَيْنَ السَّكّينُ لَوْ سَمَحْتِ؟", en: "Where is the knife, please?", tr: "ayna s-sakkīnu law samaḥti?" },
+      { sp: { ar: "الأُمّ", en: "Mother" }, ar: "هُوَ عَلى المائِدَةِ بِجانِبِ الصَّحْنِ.", en: "It's on the table next to the plate.", tr: "huwa ʿalā l-māʾidati bijānibi ṣ-ṣaḥn" },
+      { sp: { ar: "فاطِمَة", en: "Fatima" }, ar: "هَلْ أُقَشِّرُ البَصَلَ أَمْ أَقْطَعُهُ؟", en: "Should I peel the onions or cut them?", tr: "hal uqashshiru l-baṣala am aqṭaʿuhu?" },
+      { sp: { ar: "الأُمّ", en: "Mother" }, ar: "اقْطَعِيهِ صِغاراً. ثُمَّ ضَعِيهِ في القِدْرِ.", en: "Cut it into small pieces. Then put it in the pot.", tr: "iqṭaʿīhi ṣighāran. thumma ḍaʿīhi fī l-qidr" },
+      { sp: { ar: "فاطِمَة", en: "Fatima" }, ar: "سَأَفْعَلُ ذٰلِكَ الآنَ.", en: "I will do that now.", tr: "sa-afʿalu dhālika al-āna" }
+    ],
+    vocab: [
+      { ar: "المَطْبَخ", en: "The kitchen", tr: "al-maṭbakh" },
+      { ar: "القِدْر", en: "The pot", tr: "al-qidr" },
+      { ar: "المِقْلاة", en: "The frying pan", tr: "al-miqlāh" },
+      { ar: "السَّكّين", en: "The knife", tr: "as-sakkīn" },
+      { ar: "الشَّوْكَة", en: "The fork", tr: "ash-shawka" },
+      { ar: "المِلْعَقَة", en: "The spoon", tr: "al-milʿaqa" },
+      { ar: "الصَّحْن", en: "The plate", tr: "aṣ-ṣaḥn" },
+      { ar: "الكَأْس", en: "The glass/cup", tr: "al-kaʾs" },
+      { ar: "الثَّلاّجَة", en: "The refrigerator", tr: "ath-thallāja" },
+      { ar: "يَغْسِل", en: "He washes", tr: "yaghsilu" },
+      { ar: "يَقْطَع", en: "He cuts", tr: "yaqṭaʿu" },
+      { ar: "يَطْبُخ", en: "He cooks", tr: "yaṭbukhu" }
+    ],
+    quiz: [
+      { q: { ar: "نَسْتَخْدِمُ ____ لِقَطْعِ الخُضارِ.", en: "We use ____ to cut vegetables." }, options: [{ ar: "السَّكّين", en: "The knife" }, { ar: "الشَّوْكَة", en: "The fork" }, { ar: "المِلْعَقَة", en: "The spoon" }], answer: 0 },
+      { q: { ar: "نَطْبُخُ الطَّعامَ في ____.", en: "We cook food in the ____." }, options: [{ ar: "القِدْر", en: "Pot" }, { ar: "الصَّحْن", en: "Plate" }, { ar: "الكَأْس", en: "Glass" }], answer: 0 },
+      { q: { ar: "نُبَرِّدُ الطَّعامَ في ____.", en: "We keep food cold in the ____." }, options: [{ ar: "الثَّلاّجَة", en: "Refrigerator" }, { ar: "المِقْلاة", en: "Frying pan" }, { ar: "الخِزانَة", en: "Wardrobe" }], answer: 0 },
+      { q: { ar: "«نَأْكُلُ بِالشَّوْكَةِ وَالسَّكّينِ» صَحيحٌ أَمْ خَطَأ؟", en: "Is 'we eat with fork and knife' correct?" }, options: [{ ar: "صَحيح", en: "Correct" }, { ar: "خَطَأ", en: "Wrong" }, { ar: "لا أَدْري", en: "I don't know" }], answer: 0 },
+      { q: { ar: "مَعْنى «يَطْبُخُ»:", en: "Meaning of «yaṭbukhu»:" }, options: [{ ar: "He cooks", en: "He cooks" }, { ar: "He eats", en: "He eats" }, { ar: "He drinks", en: "He drinks" }], answer: 0 }
+    ]
+  },
+  {
+    id: "mosque",
+    icon: "🕌",
+    level: "A1",
+    accent: "#16a34a",
+    title: { ar: "المسجد", en: "The Mosque" },
+    summary: {
+      ar: "تعرف على المسجد وكلمات الصلاة الشائعة وآداب المسجد.",
+      en: "Learn about the mosque, common prayer words, and mosque etiquette."
+    },
+    dialogue: [
+      { sp: { ar: "خالد", en: "Khalid" }, ar: "هَلْ تَذْهَبُ إِلَى المَسْجِدِ اليَوْمَ؟", en: "Are you going to the mosque today?", tr: "hal tadhhabu ilā l-masjidi al-yawm?" },
+      { sp: { ar: "سَعِيد", en: "Said" }, ar: "نَعَمْ، أُريدُ أَنْ أُصَلِّي الظُّهْرَ مَعَ الجَماعَةِ.", en: "Yes, I want to pray Dhuhr with the congregation.", tr: "naʿam, urīdu an uṣalliya ẓ-ẓuhra maʿa l-jamāʿa" },
+      { sp: { ar: "خالد", en: "Khalid" }, ar: "أَنا مَعَكَ. هَيّا نَذْهَبُ مَعاً.", en: "I'm with you. Let's go together.", tr: "anā maʿaka. hayyā nadhhabu maʿan" },
+      { sp: { ar: "سَعِيد", en: "Said" }, ar: "يَجِبُ أَنْ نَغْسِلَ وَجْهَنا وَأَيْدِيَنا قَبْلَ الدُّخُولِ.", en: "We must wash our face and hands before entering.", tr: "yajibu an naghsila wajhanā wa aydiyanā qabla d-dukhūl" },
+      { sp: { ar: "خالد", en: "Khalid" }, ar: "نَعَمْ، هٰذا هُوَ الوُضُوءُ.", en: "Yes, this is wudu (ablution).", tr: "naʿam, hādhā huwa l-wuḍūʾ" },
+      { sp: { ar: "سَعِيد", en: "Said" }, ar: "دَخَلْنا المَسْجِدَ. لِنَقِفْ في الصَّفِّ.", en: "We entered the mosque. Let's stand in the row.", tr: "dakhalnā l-masjida. li-naqif fī ṣ-ṣaff" },
+      { sp: { ar: "خالد", en: "Khalid" }, ar: "بَارَكَ اللهُ فِيكَ.", en: "May Allah bless you.", tr: "bāraka llāhu fīka" }
+    ],
+    vocab: [
+      { ar: "المَسْجِد", en: "The mosque", tr: "al-masjid" },
+      { ar: "المِئْذَنَة", en: "The minaret", tr: "al-miʾdhana" },
+      { ar: "القُبَّة", en: "The dome", tr: "al-qubba" },
+      { ar: "الصَّفّ", en: "The prayer row", tr: "aṣ-ṣaff" },
+      { ar: "الإِمام", en: "The imam", tr: "al-imām" },
+      { ar: "المُؤَذِّن", en: "The muezzin", tr: "al-muʾadhdhin" },
+      { ar: "الوُضُوء", en: "Ablution (wudu)", tr: "al-wuḍūʾ" },
+      { ar: "الصَّلاة", en: "Prayer", tr: "aṣ-ṣalāh" },
+      { ar: "الجَماعَة", en: "Congregation", tr: "al-jamāʿa" },
+      { ar: "أُصَلِّي", en: "I pray", tr: "uṣallī" }
+    ],
+    quiz: [
+      { q: { ar: "نَذْهَبُ إِلَى ____ لِلصَّلاةِ.", en: "We go to the ____ to pray." }, options: [{ ar: "المَسْجِد", en: "Mosque" }, { ar: "البَيْت", en: "House" }, { ar: "المَطْعَم", en: "Restaurant" }], answer: 0 },
+      { q: { ar: "«الوُضُوء» هُوَ:", en: "«al-wuḍūʾ» is:" }, options: [{ ar: "Ablution before prayer", en: "Ablution before prayer" }, { ar: "Eating food", en: "Eating food" }, { ar: "Sleeping", en: "Sleeping" }], answer: 0 },
+      { q: { ar: "يَقُودُ الصَّلاةَ ____.", en: "____ leads the prayer." }, options: [{ ar: "الإِمام", en: "The imam" }, { ar: "النَّادِل", en: "The waiter" }, { ar: "البائِع", en: "The seller" }], answer: 0 },
+      { q: { ar: "نَقِفُ في ____ خِلالَ الصَّلاةِ الجَماعِيَّةِ.", en: "We stand in ____ during congregational prayer." }, options: [{ ar: "الصَّفِّ", en: "The row" }, { ar: "البابِ", en: "The door" }, { ar: "النَّافِذَةِ", en: "The window" }], answer: 0 },
+      { q: { ar: "«المُؤَذِّن» يَدْعُو لِلصَّلاةِ مِنْ ____.", en: "The muezzin calls to prayer from the ____." }, options: [{ ar: "المِئْذَنَة", en: "Minaret" }, { ar: "القُبَّة", en: "Dome" }, { ar: "الباب", en: "Door" }], answer: 0 }
+    ]
+  },
+  {
+    id: "school",
+    icon: "🏫",
+    level: "A1",
+    accent: "#6366f1",
+    title: { ar: "المدرسة", en: "The School" },
+    summary: {
+      ar: "كلمات المدرسة، الفصول، والمواد الدراسية الشائعة.",
+      en: "Learn school vocabulary, classrooms, and common subjects."
+    },
+    dialogue: [
+      { sp: { ar: "مُعَلِّم", en: "Teacher" }, ar: "صَباحَ الخَيْرِ يا طُلّاب. كَيْفَ حالُكُمْ؟", en: "Good morning, students. How are you?", tr: "ṣabāḥa l-khayri yā ṭullāb. kayfa ḥālukum?" },
+      { sp: { ar: "الطُّلاب", en: "Students" }, ar: "صَباحَ النُّورِ يا أُسْتاذ. بِخَيْرٍ، الحَمْدُ لله.", en: "Good morning, teacher. Fine, praise be to Allah.", tr: "ṣabāḥa n-nūri yā ustādh. bi-khayrin, al-ḥamdu li-llāh" },
+      { sp: { ar: "مُعَلِّم", en: "Teacher" }, ar: "اليَوْمَ سَنَدْرُسُ اللُّغَةَ العَرَبِيَّة.", en: "Today we will study the Arabic language.", tr: "al-yawma sa-nadrusu l-lughata l-ʿarabiyya" },
+      { sp: { ar: "طالِب", en: "Student" }, ar: "يا أُسْتاذ، أَيْنَ كِتابي؟ نَسِيتُهُ في الحَقِيبَةِ.", en: "Teacher, where is my book? I forgot it in the bag.", tr: "yā ustādh, ayna kitābī? nasītuhu fī l-ḥaqība" },
+      { sp: { ar: "مُعَلِّم", en: "Teacher" }, ar: "افْتَحْ كِتابَكَ صَفْحَةَ عِشْرِينَ لَوْ سَمَحْتَ.", en: "Open your book to page twenty, please.", tr: "iftaḥ kitābaka ṣafḥata ʿishrīn law samaḥta" },
+      { sp: { ar: "طالِب", en: "Student" }, ar: "حَسَناً يا أُسْتاذ. فَهِمْتُ الدَّرْسَ.", en: "Okay, teacher. I understood the lesson.", tr: "ḥasanan yā ustādh. fahimtu d-darsa" },
+      { sp: { ar: "مُعَلِّم", en: "Teacher" }, ar: "مُمْتاز. أَحْسَنْتَ يا وَلَدِي.", en: "Excellent. Well done, my son.", tr: "mumtāz. aḥsanta yā waladī" }
+    ],
+    vocab: [
+      { ar: "المَدْرَسَة", en: "The school", tr: "al-madrasa" },
+      { ar: "الفَصْل", en: "The classroom", tr: "al-faṣl" },
+      { ar: "المُعَلِّم / الأُسْتاذ", en: "Teacher", tr: "al-muʿallim / al-ustādh" },
+      { ar: "الطّالِب", en: "Student", tr: "aṭ-ṭālib" },
+      { ar: "الكِتاب", en: "The book", tr: "al-kitāb" },
+      { ar: "الدَّفْتَر", en: "The notebook", tr: "ad-daftar" },
+      { ar: "القَلَم", en: "The pen", tr: "al-qalam" },
+      { ar: "الحَقِيبَة", en: "The bag/school bag", tr: "al-ḥaqība" },
+      { ar: "اللَّوْحَة", en: "The board", tr: "al-lawḥa" },
+      { ar: "العَرَبِيَّة", en: "Arabic", tr: "al-ʿarabiyya" },
+      { ar: "الرِّياضِيّات", en: "Mathematics", tr: "ar-riyāḍiyyāt" },
+      { ar: "التَّارِيخ", en: "History", tr: "at-tārīkh" }
+    ],
+    quiz: [
+      { q: { ar: "نَدْرُسُ في ____.", en: "We study at ____." }, options: [{ ar: "المَدْرَسَة", en: "School" }, { ar: "المَسْجِد", en: "Mosque" }, { ar: "المَطْعَم", en: "Restaurant" }], answer: 0 },
+      { q: { ar: "يُعَلِّمُنا ____ الدُّرُوسَ.", en: "The ____ teaches us lessons." }, options: [{ ar: "المُعَلِّم", en: "Teacher" }, { ar: "الطّالِب", en: "Student" }, { ar: "البائِع", en: "Seller" }], answer: 0 },
+      { q: { ar: "نَكْتُبُ بِـ ____.", en: "We write with a ____." }, options: [{ ar: "القَلَم", en: "Pen" }, { ar: "الكُرْسيّ", en: "Chair" }, { ar: "السَّرير", en: "Bed" }], answer: 0 },
+      { q: { ar: "نَحْفَظُ دُروسَنا في ____.", en: "We write our lessons in a ____." }, options: [{ ar: "الدَّفْتَر", en: "Notebook" }, { ar: "الصَّحْن", en: "Plate" }, { ar: "القِدْر", en: "Pot" }], answer: 0 },
+      { q: { ar: "نَقْرَأُ مِنَ ____.", en: "We read from the ____." }, options: [{ ar: "الكِتاب", en: "Book" }, { ar: "المِلْعَقَة", en: "Spoon" }, { ar: "الكَأْس", en: "Glass" }], answer: 0 }
+    ]
+  },
+  {
+    id: "home",
+    icon: "🏠",
+    level: "A1",
+    accent: "#be185d",
+    title: { ar: "في البيت", en: "At Home" },
+    summary: {
+      ar: "أجزاء البيت، أفراد الأسرة، وأفعال الحياة اليومية.",
+      en: "Parts of the house, family members, and daily activities."
+    },
+    dialogue: [
+      { sp: { ar: "أحمد", en: "Ahmad" }, ar: "أَهْلاً وَسَهْلاً بِكُمْ في بَيْتِنا.", en: "Welcome to our home.", tr: "ahlan wa sahlan bikum fī baytinā" },
+      { sp: { ar: "زائِر", en: "Visitor" }, ar: "شُكْراً جَزيلاً. بَيْتُكُمْ جَميلٌ جِدّاً.", en: "Thank you very much. Your house is very beautiful.", tr: "shukran jazīlan. baytukum jamīlun jiddan" },
+      { sp: { ar: "أحمد", en: "Ahmad" }, ar: "تَفَضَّلْ، ادْخُلْ إِلَى غُرْفَةِ الجُلُوسِ.", en: "Please, come in to the living room.", tr: "tafaḍḍal, idkhul ilā ghurfati l-julūs" },
+      { sp: { ar: "زائِر", en: "Visitor" }, ar: "مَنْ هٰؤُلاءِ؟ هُمْ أَهْلُكَ؟", en: "Who are these? Are they your family?", tr: "man hāʾulāʾ? hum ahluk?" },
+      { sp: { ar: "أحمد", en: "Ahmad" }, ar: "نَعَمْ. هٰذا وَالِدي، وَهٰذِهِ وَالِدَتي، وَهٰذا أَخي الصَّغير.", en: "Yes. This is my father, this is my mother, and this is my little brother.", tr: "naʿam. hādhā wālidī, wa hādhihī wālidatī, wa hādhā akhī ṣ-ṣaghīr" },
+      { sp: { ar: "زائِر", en: "Visitor" }, ar: "سُرِرْتُ بِمَعْرِفَتِهِمْ جِدّاً.", en: "I am very pleased to meet them.", tr: "surirtu bi-maʿrifatihim jiddan" },
+      { sp: { ar: "أحمد", en: "Ahmad" }, ar: "وَنَحْنُ أَيْضاً سُرِرْنا بِكُمْ.", en: "We are also pleased to meet you.", tr: "wa naḥnu aydan surirnā bikum" }
+    ],
+    vocab: [
+      { ar: "البَيْت", en: "The house/home", tr: "al-bayt" },
+      { ar: "غُرْفَةُ الجُلُوسِ", en: "Living room", tr: "ghurfatu l-julūs" },
+      { ar: "غُرْفَةُ النَّوْمِ", en: "Bedroom", tr: "ghurfatu n-nawm" },
+      { ar: "الحَمّام", en: "Bathroom", tr: "al-ḥammām" },
+      { ar: "المَطْبَخ", en: "Kitchen", tr: "al-maṭbakh" },
+      { ar: "الحَدِيقَة", en: "Garden", tr: "al-ḥadīqa" },
+      { ar: "الأُسْرَة", en: "Family", tr: "al-usra" },
+      { ar: "الوَالِد", en: "Father", tr: "al-wālid" },
+      { ar: "الوَالِدَة", en: "Mother", tr: "al-wālida" },
+      { ar: "الأَخ", en: "Brother", tr: "al-akh" },
+      { ar: "الأُخْت", en: "Sister", tr: "al-ukht" },
+      { ar: "الأَطْفال", en: "Children", tr: "al-aṭfāl" }
+    ],
+    quiz: [
+      { q: { ar: "نَأْكُلُ وَنَجْتَمِعُ في ____.", en: "We eat and gather in the ____." }, options: [{ ar: "غُرْفَةِ الجُلُوسِ", en: "Living room" }, { ar: "الحَمّام", en: "Bathroom" }, { ar: "غُرْفَةِ النَّوْمِ", en: "Bedroom" }], answer: 0 },
+      { q: { ar: "نَنامُ في ____.", en: "We sleep in the ____." }, options: [{ ar: "غُرْفَةِ النَّوْمِ", en: "Bedroom" }, { ar: "المَطْبَخ", en: "Kitchen" }, { ar: "الحَدِيقَة", en: "Garden" }], answer: 0 },
+      { q: { ar: "«الوَالِدَة» تَعْني:", en: "«al-wālida» means:" }, options: [{ ar: "Mother", en: "Mother" }, { ar: "Father", en: "Father" }, { ar: "Brother", en: "Brother" }], answer: 0 },
+      { q: { ar: "أُخْتُكَ هِيَ ____ لَكَ.", en: "Your sister is your ____." }, options: [{ ar: "أُخْت", en: "Sister" }, { ar: "أَخ", en: "Brother" }, { ar: "عَمّ", en: "Uncle" }], answer: 0 },
+      { q: { ar: "نَلْعَبُ في ____ عِنْدَما يَكُونُ الجَوُّ جَميلاً.", en: "We play in the ____ when the weather is nice." }, options: [{ ar: "الحَدِيقَة", en: "Garden" }, { ar: "الحَمّام", en: "Bathroom" }, { ar: "الفَصْل", en: "Classroom" }], answer: 0 }
     ]
   }
 ];
