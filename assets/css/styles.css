@@ -578,6 +578,16 @@ html[dir="ltr"] .toast.show { transform: translateX(-50%) translateY(0); }
   .reveal { opacity: 1; transform: none; }
 }
 
+/* ---------- Print (website → PDF / paper) ---------- */
+@media print {
+  *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  @page { size: A4; margin: 12mm; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .site-header { position: static !important; }
+  .bg-deco, .blob, .accent-menu, .toast, .header-actions { display: none !important; }
+  .lesson-card, .feature, .teacher-card, .bio-facts li { break-inside: avoid; }
+}
+
 /* ---------- Accent themes (reader can change the color) ---------- */
 html[data-accent="green"] { --brand-1: #15803d; --brand-2: #16a34a; --brand-3: #4ade80; --ring: rgba(22, 163, 74, .35); }
 html[data-accent="blue"]  { --brand-1: #1e3a8a; --brand-2: #2563eb; --brand-3: #60a5fa; --ring: rgba(37, 99, 235, .35); }
