@@ -98,6 +98,7 @@ const UI = {
     toastNoSpeech: "المتصفح لا يدعم النُطق الصوتي",
     toastSpeakAr: "جاري النُطق بالعربية…",
     toastLang: "تم تغيير اللغة",
+    accentChanged: "تم تغيير لون الواجهة",
     toastDone: "أحسنت! أكملت الدرس 🎉",
     savedHint: "يُحفظ تقدّمك تلقائياً",
     downloadPdf: "تحميل الكتاب PDF",
@@ -197,6 +198,7 @@ const UI = {
     toastNoSpeech: "Your browser doesn't support speech",
     toastSpeakAr: "Speaking in Arabic…",
     toastLang: "Language changed",
+    accentChanged: "Interface color changed",
     toastDone: "Well done! You completed the lesson 🎉",
     savedHint: "Your progress is saved automatically",
     downloadPdf: "Download PDF book",
@@ -210,6 +212,7 @@ const STORAGE_KEY = "arabic_lessons_v2";
 const state = {
   lang: "ar",
   theme: "light",
+  accent: "green",
   showTrans: true,
   showTr: true,
   filterLevel: "all",
@@ -225,6 +228,7 @@ function loadState() {
       const s = JSON.parse(raw);
       if (s.lang) state.lang = s.lang;
       if (s.theme) state.theme = s.theme;
+      if (s.accent) state.accent = s.accent;
       if (typeof s.showTrans === "boolean") state.showTrans = s.showTrans;
       if (typeof s.showTr === "boolean") state.showTr = s.showTr;
       if (s.completed) state.completed = s.completed;
@@ -234,7 +238,7 @@ function loadState() {
 function saveState() {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
-      lang: state.lang, theme: state.theme,
+      lang: state.lang, theme: state.theme, accent: state.accent,
       showTrans: state.showTrans, showTr: state.showTr,
       completed: state.completed
     }));
@@ -262,6 +266,10 @@ function applyTheme() {
   document.documentElement.setAttribute("data-theme", state.theme);
   const btn = $("#themeBtn");
   if (btn) btn.innerHTML = state.theme === "dark" ? "☀️" : "🌙";
+}
+function applyAccent() {
+  document.documentElement.setAttribute("data-accent", state.accent || "green");
+  $$("#accentMenu .swatch").forEach(s => s.classList.toggle("active", s.dataset.accent === state.accent));
 }
 function applyLang() {
   const dir = state.lang === "ar" ? "rtl" : "ltr";
@@ -781,6 +789,23 @@ function bindChrome() {
     state.theme = state.theme === "dark" ? "light" : "dark";
     applyTheme(); saveState();
   });
+  const accentBtn = $("#accentBtn");
+  const accentMenu = $("#accentMenu");
+  if (accentBtn && accentMenu) {
+    accentBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      accentMenu.hidden = !accentMenu.hidden;
+    });
+    $$("#accentMenu .swatch").forEach(s => s.addEventListener("click", () => {
+      state.accent = s.dataset.accent;
+      applyAccent(); saveState();
+      accentMenu.hidden = true;
+      toast(t("accentChanged"));
+    }));
+    document.addEventListener("click", (e) => {
+      if (!accentMenu.hidden && !e.target.closest(".accent-wrap")) accentMenu.hidden = true;
+    });
+  }
   $("#langBtn").addEventListener("click", () => {
     state.lang = state.lang === "ar" ? "en" : "ar";
     applyLang(); saveState();
@@ -804,6 +829,7 @@ window.addEventListener("hashchange", () => { if (window.speechSynthesis) window
 function boot() {
   loadState();
   applyTheme();
+  applyAccent();
   applyLang();
   bindChrome();
   render();

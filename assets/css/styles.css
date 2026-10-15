@@ -1,7 +1,7 @@
 /* =========================================================
    Arabic Lessons — Design System
    الإمام أحمد شيخ توري | Imam Ahmad Sheikh Touray
-   لوحة الألوان: أزرق ملكي + ذهبي
+   لوحة الألوان: أخضر + ذهبي (ويمكن للقارئ تغيير اللون)
    ========================================================= */
 
 /* ---------- Fonts ---------- */
@@ -9,10 +9,10 @@
 
 /* ---------- Theme tokens ---------- */
 :root {
-  /* الأزرق الملكي */
-  --brand-1: #1e3a8a;
-  --brand-2: #2563eb;
-  --brand-3: #60a5fa;
+  /* الأخضر (اللون الافتراضي) */
+  --brand-1: #15803d;
+  --brand-2: #16a34a;
+  --brand-3: #4ade80;
   /* الذهبي */
   --gold: #c69a2d;
   --gold-2: #f4cd63;
@@ -26,9 +26,9 @@
   --text: #0a1733;
   --text-soft: #4d5c86;
   --line: #dbe4f8;
-  --shadow: 0 18px 40px -18px rgba(30, 58, 138, .35);
-  --shadow-sm: 0 8px 20px -12px rgba(30, 58, 138, .4);
-  --ring: rgba(37, 99, 235, .35);
+  --shadow: 0 18px 40px -18px rgba(2, 6, 23, .28);
+  --shadow-sm: 0 8px 20px -12px rgba(2, 6, 23, .3);
+  --ring: rgba(22, 163, 74, .35);
 
   --radius: 22px;
   --radius-sm: 14px;
@@ -576,4 +576,32 @@ html[dir="ltr"] .toast.show { transform: translateX(-50%) translateY(0); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- Accent themes (reader can change the color) ---------- */
+html[data-accent="green"] { --brand-1: #15803d; --brand-2: #16a34a; --brand-3: #4ade80; --ring: rgba(22, 163, 74, .35); }
+html[data-accent="blue"]  { --brand-1: #1e3a8a; --brand-2: #2563eb; --brand-3: #60a5fa; --ring: rgba(37, 99, 235, .35); }
+html[data-accent="gold"]  { --brand-1: #b45309; --brand-2: #d97706; --brand-3: #fbbf24; --ring: rgba(217, 119, 6, .35); }
+html[data-accent="purple"]{ --brand-1: #6d28d9; --brand-2: #7c3aed; --brand-3: #a78bfa; --ring: rgba(124, 58, 237, .35); }
+html[data-accent="rose"]  { --brand-1: #be123c; --brand-2: #e11d48; --brand-3: #fb7185; --ring: rgba(225, 29, 72, .35); }
+html[data-accent="teal"]  { --brand-1: #0f766e; --brand-2: #14b8a6; --brand-3: #5eead4; --ring: rgba(20, 184, 166, .35); }
+
+.accent-wrap { position: relative; }
+.accent-menu {
+  position: absolute; top: calc(100% + .55rem); inset-inline-end: 0;
+  display: flex; gap: .4rem; flex-wrap: wrap; max-width: 200px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 16px; padding: .6rem; box-shadow: var(--shadow); z-index: 70;
+}
+.accent-menu[hidden] { display: none; }
+.swatch {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--sw); border: 2px solid var(--surface);
+  box-shadow: 0 0 0 1px var(--line); transition: transform .2s, box-shadow .2s;
+}
+.swatch:hover { transform: scale(1.15); }
+.swatch.active { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--sw); }
+
+@media (max-width: 640px) {
+  .accent-menu { inset-inline-end: -60px; }
 }
