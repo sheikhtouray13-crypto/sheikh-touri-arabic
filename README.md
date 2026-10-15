@@ -1,5 +1,5 @@
-# دروس اللغة العربية للناطقين بغيرها — الإمام أحمد شيخ توري
-# Arabic Lessons for Speakers of Other Languages — Imam Ahmad Sheikh Touray
+# دروس اللغة العربية للناطقين بغيرها — الإمام أحمد شيخ توري جميل
+# Arabic Lessons for Speakers of Other Languages — Imam Ahmad Sheikh Touray Jameel
 
 موقع/تطبيق تفاعلي لتعلّم العربية الفصحى المبسّطة من خلال **المحادثات والمواقف اليومية**،
 مع **ترجمة إنجليزية** و**نُطق صوتي** و**اختبارات تفاعلية**.
@@ -8,6 +8,18 @@ An interactive web app for learning simplified Modern Standard Arabic through
 **everyday conversations**, with **English translation**, **audio**, and **interactive quizzes**.
 
 > 🔗 **الموقع المنشور مباشرة:** <https://sheikhtouray13-crypto.github.io/sheikh-touri-arabic/>
+
+---
+
+## 👤 عن المدرّب | About the instructor
+
+**الإمام أحمد شيخ توري جميل** — إمام ومعلّم للغة العربية:
+
+- 🌍 **البلد:** غامبيا (The Gambia)
+- 🏘️ **القرية:** بجغكندا (Baja Kunda)
+- 🎓 **الدراسة:** تخرّج في **معهد الإمام مالك الإسلامي**، ثم التحق بـ**جامعة الإحسان** في **بانجولندن** وتخرّج فيها عام **2021–2022**.
+- 🧑‍🏫 **الخبرة:** مدرّس في **معهد الإمام مالك الإسلامي** (الذي تخرّج فيه) لمدة **سنتين**.
+- 🕌 **القبول:** قُبِل في **الجامعة الإسلامية بالمدينة المنورة** عام **2024**.
 
 ---
 
@@ -151,4 +163,4 @@ HTML5 · CSS3 (متغيّرات + Grid + Flexbox) · JavaScript خالص (بدو
 
 ---
 
-© الإمام أحمد شيخ توري — جميع الحقوق محفوظة.
+© الإمام أحمد شيخ توري جميل — جميع الحقوق محفوظة.

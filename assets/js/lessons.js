@@ -1,7 +1,7 @@
 /* =========================================================
    دروس العربية للناطقين بغيرها — محتوى الدروس
    Arabic Lessons for Non-Native Speakers — Lesson Data
-   الإمام أحمد شيخ توري | Imam Ahmad Sheikh Touray
+   الإمام أحمد شيخ توري جميل | Imam Ahmad Sheikh Touray Jameel
    ========================================================= */
 
 const LESSONS = [

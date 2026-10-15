@@ -1,6 +1,6 @@
 /* =========================================================
    Arabic Lessons — App Logic
-   الإمام أحمد شيخ توري | Imam Ahmad Sheikh Touray
+   الإمام أحمد شيخ توري جميل | Imam Ahmad Sheikh Touray Jameel
    ========================================================= */
 
 /* ---------------- i18n (interface strings) ---------------- */
@@ -15,14 +15,14 @@ const UI = {
     heroBadge: "تطبيق تفاعلي مع ترجمة إنجليزية",
     heroTitle1: "تعلّم العربية بالمحادثات",
     heroTitle2: "الحقيقية",
-    heroLead: "دروسٌ ممتعة للمواقف اليومية، مع ترجمة إنجليزية، ونُطق صوتي، واختبارات تفاعلية. من إعداد الإمام أحمد شيخ توري.",
+    heroLead: "دروسٌ ممتعة للمواقف اليومية، مع ترجمة إنجليزية، ونُطق صوتي، واختبارات تفاعلية. من إعداد الإمام أحمد شيخ توري جميل.",
     heroCtaLessons: "ابدأ الدروس",
     heroCtaHow: "كيف يعمل؟",
     statLessons: "درس تفاعلي",
     statLevels: "مستويات",
     statFree: "مجاني %100",
     teacherRole: "إمام ومعلّم اللغة العربية",
-    teacherBio: "نتعلّم مع الإمام أحمد شيخ توري العربية بالفصحى المبسّطة مع تركيز على المحادثة والمواقف الحقيقية للناطقين بغيرها.",
+    teacherBio: "نتعلّم مع الإمام أحمد شيخ توري جميل العربية بالفصحى المبسّطة مع تركيز على المحادثة والمواقف الحقيقية. وهو من غامبيا، تخرّج في معهد الإمام مالك الإسلامي وجامعة الإحسان، ويواصل دراسته في الجامعة الإسلامية بالمدينة المنورة.",
     tagFusha: "فصحى مبسّطة",
     tagConv: "محادثة",
     tagTrans: "ترجمة إنجليزية",
@@ -51,8 +51,13 @@ const UI = {
     notStarted: "لم يبدأ",
     empty: "لا توجد دروس مطابقة لبحثك.",
     aboutKicker: "عن المدرّب",
-    aboutTitle: "الإمام أحمد شيخ توري",
-    aboutP: "الإمام أحمد شيخ توري، معلّم متخصّص في تعليم اللغة العربية للناطقين بغيرها، يقدّم دروساً مبسّطة تعتمد على المواقف الحقيقية والترجمة الإنجليزية لتسهيل الفهم.",
+    aboutTitle: "الإمام أحمد شيخ توري جميل",
+    aboutP: "الإمام أحمد شيخ توري جميل، إمام ومعلّم للغة العربية من قرية بجغكندا في غامبيا. تخرّج في معهد الإمام مالك الإسلامي، ثم التحق بجامعة الإحسان في بانجولندن وتخرّج فيها عام 2021–2022، وعمل مدرّساً في معهد الإمام مالك (الذي تخرّج فيه) لمدة سنتين، ثم قُبِل في الجامعة الإسلامية بالمدينة المنورة عام 2024.",
+    fCountry: "البلد", vCountry: "غامبيا",
+    fVillage: "القرية", vVillage: "بجغكندا",
+    fStudy: "الدراسة", vStudy: "معهد الإمام مالك الإسلامي، ثم جامعة الإحسان – بانجولندن (2021–2022)",
+    fWork: "الخبرة", vWork: "مدرّس في معهد الإمام مالك الإسلامي لمدة سنتين",
+    fAdmit: "القبول", vAdmit: "الجامعة الإسلامية بالمدينة المنورة (2024)",
     howKicker: "طريقة الدراسة",
     howTitle: "كيف تدرس؟",
     step1t: "اختر الدرس",
@@ -90,7 +95,7 @@ const UI = {
     footerContact: "تواصل",
     rights: "جميع الحقوق محفوظة",
     madeBy: "من إعداد",
-    author: "الإمام أحمد شيخ توري",
+    author: "الإمام أحمد شيخ توري جميل",
     toastTransOn: "الترجمة ظاهرة الآن",
     toastTransOff: "تم إخفاء الترجمة",
     toastTrOn: "النقل الصوتي ظاهر",
@@ -115,14 +120,14 @@ const UI = {
     heroBadge: "Interactive app with English translation",
     heroTitle1: "Learn Arabic through real",
     heroTitle2: "conversations",
-    heroLead: "Fun lessons for everyday situations, with English translation, audio pronunciation and interactive quizzes. By Imam Ahmad Sheikh Touray.",
+    heroLead: "Fun lessons for everyday situations, with English translation, audio pronunciation and interactive quizzes. By Imam Ahmad Sheikh Touray Jameel.",
     heroCtaLessons: "Start lessons",
     heroCtaHow: "How it works",
     statLessons: "interactive lessons",
     statLevels: "levels",
     statFree: "100% free",
     teacherRole: "Imam and Arabic language teacher",
-    teacherBio: "With Imam Ahmad Sheikh Touray, we learn simplified Modern Standard Arabic with a focus on conversation and real situations for speakers of other languages.",
+    teacherBio: "With Imam Ahmad Sheikh Touray Jameel, we learn simplified Modern Standard Arabic with a focus on conversation and real situations. He is from The Gambia; he graduated from Al-Imam Malick Islamic Institute and Al Ihsan University, and is now studying at the Islamic University of Madinah.",
     tagFusha: "Simplified MSA",
     tagConv: "Conversation",
     tagTrans: "English translation",
@@ -151,8 +156,13 @@ const UI = {
     notStarted: "Not started",
     empty: "No lessons match your search.",
     aboutKicker: "About the instructor",
-    aboutTitle: "Imam Ahmad Sheikh Touray",
-    aboutP: "Imam Ahmad Sheikh Touray is a specialist in teaching Arabic to speakers of other languages, offering simple lessons based on real situations with English translation to make understanding easy.",
+    aboutTitle: "Imam Ahmad Sheikh Touray Jameel",
+    aboutP: "Imam Ahmad Sheikh Touray Jameel is an imam and Arabic teacher from the village of Baja Kunda in The Gambia. He graduated from Al-Imam Malick Islamic Institute, then joined Al Ihsan University in Banjulinding and graduated in 2021–2022. He taught for two years at Al-Imam Malick Islamic Institute, and was admitted to the Islamic University of Madinah in 2024.",
+    fCountry: "Country", vCountry: "The Gambia",
+    fVillage: "Village", vVillage: "Baja Kunda",
+    fStudy: "Education", vStudy: "Al-Imam Malick Islamic Institute, then Al Ihsan University – Banjulinding (2021–2022)",
+    fWork: "Experience", vWork: "Two years teaching at Al-Imam Malick Islamic Institute",
+    fAdmit: "Admission", vAdmit: "Islamic University of Madinah (2024)",
     howKicker: "Study method",
     howTitle: "How to study",
     step1t: "Choose a lesson",
@@ -190,7 +200,7 @@ const UI = {
     footerContact: "Contact",
     rights: "All rights reserved",
     madeBy: "Created by",
-    author: "Imam Ahmad Sheikh Touray",
+    author: "Imam Ahmad Sheikh Touray Jameel",
     toastTransOn: "Translation shown",
     toastTransOff: "Translation hidden",
     toastTrOn: "Transliteration shown",
@@ -485,6 +495,13 @@ function renderHome() {
           <div class="teacher-avatar" style="margin-inline:0">أ</div>
           <h3>${t("aboutTitle")} <span class="role">— ${t("teacherRole")}</span></h3>
           <p class="bio" style="font-size:1rem">${t("aboutP")}</p>
+          <ul class="bio-facts">
+            <li><b>${t("fCountry")}:</b> <span>${t("vCountry")}</span></li>
+            <li><b>${t("fVillage")}:</b> <span>${t("vVillage")}</span></li>
+            <li><b>${t("fStudy")}:</b> <span>${t("vStudy")}</span></li>
+            <li><b>${t("fWork")}:</b> <span>${t("vWork")}</span></li>
+            <li><b>${t("fAdmit")}:</b> <span>${t("vAdmit")}</span></li>
+          </ul>
         </div>
       </div>
     </section>

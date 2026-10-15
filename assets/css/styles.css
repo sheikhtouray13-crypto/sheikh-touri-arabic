@@ -1,6 +1,6 @@
 /* =========================================================
    Arabic Lessons — Design System
-   الإمام أحمد شيخ توري | Imam Ahmad Sheikh Touray
+   الإمام أحمد شيخ توري جميل | Imam Ahmad Sheikh Touray Jameel
    لوحة الألوان: أخضر + ذهبي (ويمكن للقارئ تغيير اللون)
    ========================================================= */
 
@@ -586,8 +586,7 @@ html[data-accent="purple"]{ --brand-1: #6d28d9; --brand-2: #7c3aed; --brand-3: #
 html[data-accent="rose"]  { --brand-1: #be123c; --brand-2: #e11d48; --brand-3: #fb7185; --ring: rgba(225, 29, 72, .35); }
 html[data-accent="teal"]  { --brand-1: #0f766e; --brand-2: #14b8a6; --brand-3: #5eead4; --ring: rgba(20, 184, 166, .35); }
 
-.accent-wrap { position: relative; }
-.accent-menu {
+.accent-wrap { position: relative; }.accent-menu {
   position: absolute; top: calc(100% + .55rem); inset-inline-end: 0;
   display: flex; gap: .4rem; flex-wrap: wrap; max-width: 200px;
   background: var(--surface); border: 1px solid var(--line);
@@ -605,3 +604,15 @@ html[data-accent="teal"]  { --brand-1: #0f766e; --brand-2: #14b8a6; --brand-3: #
 @media (max-width: 640px) {
   .accent-menu { inset-inline-end: -60px; }
 }
+
+/* ---------- Instructor bio facts ---------- */
+.bio-facts {
+  list-style: none; padding: 0; margin: 1.1rem 0 0;
+  display: grid; gap: .5rem;
+}
+.bio-facts li {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem;
+  background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: 12px; padding: .55rem .9rem; font-size: .95rem;
+}
+.bio-facts li b { color: var(--brand-1); white-space: nowrap; }
