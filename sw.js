@@ -3,11 +3,11 @@
  * Hand-written (this project has no bundler, so vite-plugin-pwa is not applicable).
  * Implements the requested strategies explicitly:
  *   - Network-first for pages / navigations (and any non-versioned same-origin request).
- *   - Cache-first for versioned / content-hashed files ("ملفات ذات الأسماء المتغيرة", e.g. ?v=6).
+ *   - Cache-first for versioned / content-hashed files ("ملفات ذات الأسماء المتغيرة", e.g. ?v=8).
  *   - Auth / login / OAuth paths are never intercepted or cached.
  */
 
-const VERSION = 'v3';
+const VERSION = 'v4';
 const PAGES_CACHE = 'arabic-pages-' + VERSION;
 const ASSETS_CACHE = 'arabic-assets-' + VERSION;
 const OFFLINE_URL = './index.html';
@@ -17,7 +17,7 @@ const PRECACHE = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './assets/css/styles.css?v=7',
+  './assets/css/styles.css?v=8',
   './assets/js/lessons.js?v=6',
   './assets/js/app.js?v=7',
   './assets/arabic-lessons.pdf',

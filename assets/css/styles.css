@@ -536,7 +536,7 @@ html[data-theme="dark"] .quiz-result .ring span { color: var(--brand-3); }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 1.6rem; }
 .site-footer p, .site-footer a { color: var(--text-soft); font-size: .9rem; }
 .site-footer a:hover { color: var(--brand-1); }
-.footer-col h4 { font-size: .95rem; margin-bottom: .6rem; }
+.footer-col h3, .footer-col h4 { font-size: .95rem; margin-bottom: .6rem; }
 .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .35rem; }
 .footer-bottom { text-align: center; margin-top: 1.8rem; padding-top: 1.2rem; border-top: 1px solid var(--line); color: var(--text-soft); font-size: .82rem; }
 
