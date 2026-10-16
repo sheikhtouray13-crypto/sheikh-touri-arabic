@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>دروس اللغة العربية للناطقين بغيرها — الإمام أحمد شيخ توري جميل</title>
 <!-- same stylesheet as the site -->
-<link rel="stylesheet" href="assets/css/styles.css?v=6" />
+<link rel="stylesheet" href="assets/css/styles.css?v=7" />
 <style>
   /* ---- render the whole site (all views at once) with the site look ---- */
   .panel { display: block !important; }                 /* show dialogue + vocab + quiz together */
@@ -39,9 +39,10 @@
           <span data-i18n="brandSub">للناطقين بغيرها</span>
         </span>
       </a>
-      <nav class="nav">
+      <nav class="nav" id="siteNav">
         <a href="#/" data-i18n="navHome">الرئيسية</a>
         <a href="#lessons" data-i18n="navLessons">الدروس</a>
+        <a href="#about-us" data-i18n="navAboutUs">من نحن</a>
         <a href="#about" data-i18n="navAbout">عن المدرّب</a>
         <a href="#how" data-i18n="navHow">كيف تدرس؟</a>
       </nav>
@@ -71,6 +72,7 @@
         <ul>
           <li><a href="#/" data-i18n="navHome">الرئيسية</a></li>
           <li><a href="#lessons" data-i18n="navLessons">الدروس</a></li>
+          <li><a href="#about-us" data-i18n="navAboutUs">من نحن</a></li>
           <li><a href="#about" data-i18n="navAbout">عن المدرّب</a></li>
           <li><a href="#how" data-i18n="navHow">كيف تدرس؟</a></li>
         </ul>
@@ -94,7 +96,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="assets/js/lessons.js?v=6"></script>
-  <script src="assets/js/app.js?v=6"></script>
+  <script src="assets/js/app.js?v=7"></script>
   <script>
   /* Build one document that contains the home page + every lesson (site design). */
   document.addEventListener("DOMContentLoaded", function () {
@@ -115,7 +117,11 @@
     renderHome();
     parts.push('<section class="pdf-section pdf-home">' + document.querySelector("#app").innerHTML + "</section>");
 
-    // 2) EVERY LESSON
+    // 2) ABOUT US PAGE
+    renderAboutUs();
+    parts.push('<section class="pdf-section pdf-about">' + document.querySelector("#app").innerHTML + "</section>");
+
+    // 3) EVERY LESSON
     LESSONS.forEach(function (l) {
       renderLesson(l.id);
       var html = document.querySelector("#app").innerHTML;

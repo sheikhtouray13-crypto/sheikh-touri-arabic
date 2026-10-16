@@ -7,7 +7,7 @@
  *   - Auth / login / OAuth paths are never intercepted or cached.
  */
 
-const VERSION = 'v2';
+const VERSION = 'v3';
 const PAGES_CACHE = 'arabic-pages-' + VERSION;
 const ASSETS_CACHE = 'arabic-assets-' + VERSION;
 const OFFLINE_URL = './index.html';
@@ -17,9 +17,9 @@ const PRECACHE = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './assets/css/styles.css?v=6',
+  './assets/css/styles.css?v=7',
   './assets/js/lessons.js?v=6',
-  './assets/js/app.js?v=6',
+  './assets/js/app.js?v=7',
   './assets/arabic-lessons.pdf',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',

@@ -11,6 +11,7 @@ const UI = {
     navHome: "الرئيسية",
     navLessons: "الدروس",
     navAbout: "عن المدرّب",
+    navAboutUs: "من نحن",
     navHow: "كيف تدرس؟",
     heroBadge: "تطبيق تفاعلي مع ترجمة إنجليزية",
     heroTitle1: "تعلّم العربية بالمحادثات",
@@ -58,6 +59,39 @@ const UI = {
     fStudy: "الدراسة", vStudy: "معهد الإمام مالك الإسلامي، ثم جامعة الإحسان – بانجولندن (2021–2022)",
     fWork: "الخبرة", vWork: "مدرّس في معهد الإمام مالك الإسلامي لمدة سنتين",
     fAdmit: "القبول", vAdmit: "الجامعة الإسلامية بالمدينة المنورة (2024)",
+    /* ---------- صفحة «من نحن» ---------- */
+    auBadge: "تعرّف علينا",
+    auTitle1: "رسالتنا أن نتعلّم العربية",
+    auTitle2: "بسهولة ومتعة",
+    auLead: "«دروس العربية للناطقين بغيرها» مشروع تعليمي مجاني، يقدّم دروساً مبسّطة في الفصحى داخل مواقف الحياة اليومية، مع ترجمة إنجليزية ونُطق صوتي واختبارات تفاعلية — بإشراف الإمام أحمد شيخ توري جميل.",
+    auCtaStart: "ابدأ الدروس",
+    auCtaFeatures: "أبرز المزايا",
+    auStatLessons: "درس تفاعلي",
+    auStatLevels: "مستويات",
+    auStatFree: "مجاني %100",
+    auWhoKicker: "من نحن",
+    auWhoTitle: "مشروع تعليمي للغة العربية",
+    auWhoP: "نؤمن أنّ تعلّم العربية يبدأ من موقفٍ حقيقي: في السوق، والمطار، والطبيب، والمدرسة. لذلك بنينا الموقع حول حواراتٍ قصيرة تُشبه حياة المتعلّم اليومية، بلغة فصحى مبسّطة بعيدة عن التعقيد.",
+    auWhoP2: "الموقع مجاني بالكامل، ويعمل على الجوال والكمبيوتر، ويمكن تثبيته كتطبيق يعمل دون إنترنت.",
+    auTeamKicker: "المدرّب",
+    auTeamTitle: "الإمام أحمد شيخ توري جميل",
+    auFeatKicker: "أبرز المزايا",
+    auFeatTitle: "لماذا يتعلّم الناس معنا؟",
+    auHowKicker: "منهجنا",
+    auHowTitle: "كيف نتعلّم هنا؟",
+    auContactKicker: "تواصل",
+    auContactTitle: "تواصل معنا",
+    auContactP: "سؤال، ملاحظة، أو تصحيح؟ شاركنا عبر GitHub — نطّلع على كل ملاحظة، ونوثّق ما نجح وما يحتاج إصلاحاً.",
+    auContactBtn: "✉️ إرسال ملاحظة",
+    auContactStatus: "📋 حالة المشروع",
+    auContactIssues: "💬 كل الملاحظات",
+    auNoteHint: "تُفتح الملاحظة في صفحة GitHub جاهزة للإرسال.",
+    auBackHome: "← العودة للرئيسية",
+    auIssueTitle: "ملاحظة على موقع دروس العربية",
+    auIssueHow: "كيف وجدت الموقع؟ (يعمل جيداً / فيه خطأ)",
+    auIssueWhat: "تفاصيل الملاحظة:",
+    auIssuePage: "الصفحة أو الدرس:",
+    auIssueDevice: "الجهاز والمتصفح:",
     howKicker: "طريقة الدراسة",
     howTitle: "كيف تدرس؟",
     step1t: "اختر الدرس",
@@ -132,6 +166,7 @@ const UI = {
     navHome: "Home",
     navLessons: "Lessons",
     navAbout: "Instructor",
+    navAboutUs: "About us",
     navHow: "How to study",
     heroBadge: "Interactive app with English translation",
     heroTitle1: "Learn Arabic through real",
@@ -179,6 +214,39 @@ const UI = {
     fStudy: "Education", vStudy: "Al-Imam Malick Islamic Institute, then Al Ihsan University – Banjulinding (2021–2022)",
     fWork: "Experience", vWork: "Two years teaching at Al-Imam Malick Islamic Institute",
     fAdmit: "Admission", vAdmit: "Islamic University of Madinah (2024)",
+    /* ---------- “About us” page ---------- */
+    auBadge: "Get to know us",
+    auTitle1: "Our mission: learn Arabic",
+    auTitle2: "with ease and joy",
+    auLead: "“Arabic Lessons for speakers of other languages” is a free educational project offering simplified Modern Standard Arabic inside everyday situations, with English translation, audio pronunciation and interactive quizzes — supervised by Imam Ahmad Sheikh Touray Jameel.",
+    auCtaStart: "Start lessons",
+    auCtaFeatures: "Key features",
+    auStatLessons: "interactive lessons",
+    auStatLevels: "levels",
+    auStatFree: "100% free",
+    auWhoKicker: "Who we are",
+    auWhoTitle: "An Arabic learning project",
+    auWhoP: "We believe learning Arabic starts from a real situation: at the market, the airport, the clinic, the school. So we built the site around short dialogues that mirror the learner's daily life, in simplified Modern Standard Arabic with nothing complicated.",
+    auWhoP2: "The site is completely free, works on phone and desktop, and can be installed as an app that keeps working offline.",
+    auTeamKicker: "Instructor",
+    auTeamTitle: "Imam Ahmad Sheikh Touray Jameel",
+    auFeatKicker: "Key features",
+    auFeatTitle: "Why do people learn with us?",
+    auHowKicker: "Our method",
+    auHowTitle: "How do we learn here?",
+    auContactKicker: "Contact",
+    auContactTitle: "Get in touch",
+    auContactP: "A question, a note or a correction? Reach us on GitHub — we read every note, and we document what works and what needs fixing.",
+    auContactBtn: "✉️ Send a note",
+    auContactStatus: "📋 Project status",
+    auContactIssues: "💬 All notes",
+    auNoteHint: "The note opens in a ready-to-send GitHub page.",
+    auBackHome: "← Back to home",
+    auIssueTitle: "Feedback on the Arabic Lessons website",
+    auIssueHow: "How did you find the site? (works well / has a problem)",
+    auIssueWhat: "Details:",
+    auIssuePage: "Page or lesson:",
+    auIssueDevice: "Device and browser:",
     howKicker: "Study method",
     howTitle: "How to study",
     step1t: "Choose a lesson",
@@ -444,10 +512,43 @@ function markProgress(id, score) {
 }
 function isDone(id) { return state.completed[id] && state.completed[id].done; }
 
+/* ---------------- GitHub (ملاحظات المشروع / التواصل) ---------------- */
+const REPO_URL = "https://github.com/sheikhtouray13-crypto/sheikh-touri-arabic";
+
+/* A ready-to-send GitHub issue: success, corrections and errors in one place. */
+function issueUrl(kind) {
+  const base = REPO_URL + "/issues/new";
+  try {
+    const title = t("auIssueTitle");
+    const body = [
+      "### " + t("auIssueHow"),
+      "- [ ] يعمل جيداً / works well",
+      "- [ ] فيه خطأ / has a problem",
+      "",
+      "### " + t("auIssuePage"),
+      "`" + location.href + "`",
+      "",
+      "### " + t("auIssueDevice"),
+      "`" + (navigator.userAgent || "") + "`",
+      "",
+      "### " + t("auIssueWhat"),
+      "",
+      ""
+    ].join("\n");
+    const label = kind === "status" ? "status" : "";
+    return base + "?title=" + encodeURIComponent(title) +
+      "&body=" + encodeURIComponent(body) +
+      (label ? "&labels=" + encodeURIComponent(label) : "");
+  } catch (e) {
+    return base;
+  }
+}
+
 /* ---------------- Router ---------------- */
 function parseHash() {
   const h = location.hash.replace(/^#\/?/, "");
   if (h.startsWith("lesson/")) return { view: "lesson", id: h.split("/")[1] };
+  if (h === "about-us" || h === "aboutus") return { view: "about-us" };
   return { view: "home" };
 }
 function navigate(hash) { location.hash = hash; }
@@ -650,6 +751,127 @@ function bindHome() {
     state.filterLevel = b.dataset.level;
     renderHome();
   }));
+}
+
+/* ---------------- «من نحن» / About us ---------------- */
+function renderAboutUs() {
+  const levels = [...new Set(LESSONS.map(l => l.level))];
+
+  $("#app").innerHTML = `
+    <!-- ABOUT HERO -->
+    <section class="hero about-hero">
+      <div class="wrap about-hero-inner">
+        <span class="eyebrow">✨ ${t("auBadge")}</span>
+        <h1>${t("auTitle1")} <span class="grad">${t("auTitle2")}</span></h1>
+        <p class="lead">${t("auLead")}</p>
+        <div class="hero-cta about-cta">
+          <a class="btn btn-primary" href="#lessons" data-go="lesson/${LESSONS[0].id}">📚 ${t("auCtaStart")}</a>
+          <a class="btn btn-ghost" href="#au-features">⭐ ${t("auCtaFeatures")}</a>
+        </div>
+        <div class="hero-stats about-stats">
+          <div><div class="num">${LESSONS.length}+</div><div class="lbl">${t("auStatLessons")}</div></div>
+          <div><div class="num">${levels.length}</div><div class="lbl">${t("auStatLevels")}</div></div>
+          <div><div class="num">${t("auStatFree")}</div><div class="lbl">${t("navLessons")}</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE ARE + INSTRUCTOR -->
+    <section class="section" id="au-who">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">${t("auWhoKicker")}</div>
+          <h2>${t("auWhoTitle")}</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-card reveal">
+            <p>${t("auWhoP")}</p>
+            <p>${t("auWhoP2")}</p>
+          </div>
+          <aside class="teacher-card reveal">
+            <div class="teacher-avatar">أ</div>
+            <h3>${t("auTeamTitle")}</h3>
+            <div class="role">${t("teacherRole")}</div>
+            <p class="bio">${t("aboutP")}</p>
+            <div class="teacher-tags">
+              <span class="tag">${t("tagFusha")}</span>
+              <span class="tag">${t("tagConv")}</span>
+              <span class="tag">${t("tagTrans")}</span>
+            </div>
+          </aside>
+        </div>
+        <ul class="bio-facts about-facts reveal">
+          <li><b>${t("fCountry")}:</b> <span>${t("vCountry")}</span></li>
+          <li><b>${t("fVillage")}:</b> <span>${t("vVillage")}</span></li>
+          <li><b>${t("fStudy")}:</b> <span>${t("vStudy")}</span></li>
+          <li><b>${t("fWork")}:</b> <span>${t("vWork")}</span></li>
+          <li><b>${t("fAdmit")}:</b> <span>${t("vAdmit")}</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- KEY FEATURES -->
+    <section class="section" id="au-features">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">${t("auFeatKicker")}</div>
+          <h2>${t("auFeatTitle")}</h2>
+        </div>
+        <div class="features">
+          ${[
+            ["🔊", "feat1t", "feat1d"], ["🌐", "feat2t", "feat2d"], ["🔤", "feat3t", "feat3d"],
+            ["✅", "feat4t", "feat4d"], ["📈", "feat5t", "feat5d"], ["📴", "feat6t", "feat6d"]
+          ].map(([i, a, b]) => `
+            <div class="feature reveal">
+              <div class="fi">${i}</div>
+              <h3>${t(a)}</h3>
+              <p>${t(b)}</p>
+            </div>`).join("")}
+        </div>
+      </div>
+    </section>
+
+    <!-- METHOD -->
+    <section class="section" id="au-how">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="kicker">${t("auHowKicker")}</div>
+          <h2>${t("auHowTitle")}</h2>
+        </div>
+        <div class="features">
+          ${[
+            ["1️⃣", "step1t", "step1d"], ["2️⃣", "step2t", "step2d"],
+            ["3️⃣", "step3t", "step3d"], ["4️⃣", "step4t", "step4d"]
+          ].map(([i, a, b]) => `
+            <div class="feature reveal">
+              <div class="fi">${i}</div>
+              <h3>${t(a)}</h3>
+              <p>${t(b)}</p>
+            </div>`).join("")}
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="au-contact">
+      <div class="wrap">
+        <div class="contact-card reveal">
+          <div class="kicker">${t("auContactKicker")}</div>
+          <h2>${t("auContactTitle")}</h2>
+          <p>${t("auContactP")}</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="${issueUrl()}" target="_blank" rel="noopener">${t("auContactBtn")}</a>
+            <a class="btn btn-ghost" href="${REPO_URL}/blob/main/STATUS.md" target="_blank" rel="noopener">${t("auContactStatus")}</a>
+            <a class="btn btn-ghost" href="${REPO_URL}/issues" target="_blank" rel="noopener">${t("auContactIssues")}</a>
+          </div>
+          <p class="contact-hint">${t("auNoteHint")}</p>
+          <a class="btn btn-ghost about-back" href="#/" data-go="/">${t("auBackHome")}</a>
+        </div>
+      </div>
+    </section>
+  `;
+
+  observeReveal();
 }
 
 function renderLesson(id) {
@@ -948,6 +1170,10 @@ document.addEventListener("click", (e) => {
       e.preventDefault();
       if (parseHash().view !== "home") { navigate("/"); setTimeout(() => scrollToId(href.slice(1)), 60); }
       else scrollToId(href.slice(1));
+    } else if (/^#[A-Za-z][\w-]*$/.test(href)) {
+      const id = href.slice(1);
+      const el = document.getElementById(id);
+      if (el) { e.preventDefault(); scrollToId(id); }
     }
   }
 });
@@ -987,13 +1213,51 @@ function bindChrome() {
   });
   const menu = $("#navMenu");
   if (menu) menu.addEventListener("click", () => scrollToId("lessons"));
+
+  const navToggle = $("#navToggle");
+  const navEl = $("#siteNav");
+  if (navToggle && navEl) {
+    navToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = navEl.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    navEl.addEventListener("click", (e) => {
+      if (e.target.closest("a")) {
+        navEl.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".site-header")) {
+        navEl.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
 }
 
 /* ---------------- Render dispatcher ---------------- */
 function render() {
   const r = parseHash();
   if (r.view === "lesson") renderLesson(r.id);
+  else if (r.view === "about-us") renderAboutUs();
   else renderHome();
+  syncNav();
+}
+
+/* Highlight the current menu item and close the mobile menu. */
+function syncNav() {
+  const r = parseHash();
+  $$(".nav a").forEach(a => {
+    const href = a.getAttribute("href") || "";
+    const isActive = r.view === "about-us" ? href === "#about-us" : (href === "#/" || href === "#");
+    a.classList.toggle("active", isActive);
+  });
+  const navEl = $("#siteNav");
+  const navToggle = $("#navToggle");
+  if (navEl) navEl.classList.remove("open");
+  if (navToggle) navToggle.setAttribute("aria-expanded", "false");
 }
 
 window.addEventListener("hashchange", () => { if (window.speechSynthesis) window.speechSynthesis.cancel(); state.quiz = null; render(); window.scrollTo({ top: 0 }); });
