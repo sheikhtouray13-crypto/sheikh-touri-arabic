@@ -3,23 +3,24 @@
  * Hand-written (this project has no bundler, so vite-plugin-pwa is not applicable).
  * Implements the requested strategies explicitly:
  *   - Network-first for pages / navigations (and any non-versioned same-origin request).
- *   - Cache-first for versioned / content-hashed files ("ملفات ذات الأسماء المتغيرة", e.g. ?v=5).
+ *   - Cache-first for versioned / content-hashed files ("ملفات ذات الأسماء المتغيرة", e.g. ?v=6).
  *   - Auth / login / OAuth paths are never intercepted or cached.
  */
 
-const VERSION = 'v1';
+const VERSION = 'v2';
 const PAGES_CACHE = 'arabic-pages-' + VERSION;
 const ASSETS_CACHE = 'arabic-assets-' + VERSION;
 const OFFLINE_URL = './index.html';
 
-/* App shell pre-cached on install. */
+/* App shell pre-cached on install (so the app works with no internet). */
 const PRECACHE = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './assets/css/styles.css?v=5',
-  './assets/js/lessons.js?v=5',
-  './assets/js/app.js?v=5',
+  './assets/css/styles.css?v=6',
+  './assets/js/lessons.js?v=6',
+  './assets/js/app.js?v=6',
+  './assets/arabic-lessons.pdf',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
   './assets/icons/icon-maskable-512.png',
@@ -101,6 +102,9 @@ async function networkFirst(req, cacheName) {
   } catch (err) {
     const cached = await cache.match(req, { ignoreSearch: true });
     if (cached) return cached;
+    // Fall back to any cache (e.g. the book PDF pre-cached at install time).
+    const anywhere = await caches.match(req, { ignoreSearch: true });
+    if (anywhere) return anywhere;
     const shell = await caches.match(OFFLINE_URL, { ignoreSearch: true });
     if (shell) return shell;
     return new Response('لا يوجد اتصال بالإنترنت / Offline', {

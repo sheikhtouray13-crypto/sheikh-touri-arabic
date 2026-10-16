@@ -75,6 +75,22 @@ const UI = {
     toggleTrans: "إظهار الترجمة",
     toggleTr: "إظهار النقل الصوتي",
     speakAll: "اسمع الحوار",
+    speakModeLabel: "لغة النطق",
+    speakBoth: "عربي + English",
+    speakArOnly: "عربي فقط",
+    speakEnOnly: "English فقط",
+    toastSpeakBoth: "النطق بالعربية ثم الإنجليزية…",
+    installBtn: "تثبيت التطبيق",
+    installTitle: "ثبّت التطبيق على جوالك",
+    installText: "أضف «دروس العربية» إلى الشاشة الرئيسية ليعمل كتطبيق كامل — حتى دون إنترنت.",
+    installCta: "📲 تثبيت الآن",
+    installIos: "iPhone / iPad (Safari): اضغط زر المشاركة ⬆️ ثم «إضافة إلى الشاشة الرئيسية» ← «إضافة».",
+    installAndroid: "Android (Chrome): افتح القائمة ⋮ ثم «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».",
+    installDesktop: "افتح الموقع على الجوال في Chrome أو Safari ثم اختر «تثبيت التطبيق».",
+    installDone: "تم تثبيت التطبيق على جهازك 👍",
+    installAlready: "التطبيق مثبّت بالفعل 👍",
+    installReady: "التطبيق يعمل دون إنترنت",
+    errorGeneric: "حدث خطأ غير متوقع، أعد تحديث الصفحة.",
     stop: "إيقاف",
     quizScore: "النتيجة",
     quizQ: "السؤال",
@@ -180,6 +196,22 @@ const UI = {
     toggleTrans: "Show translation",
     toggleTr: "Show transliteration",
     speakAll: "Play dialogue",
+    speakModeLabel: "Voice language",
+    speakBoth: "Arabic + English",
+    speakArOnly: "Arabic only",
+    speakEnOnly: "English only",
+    toastSpeakBoth: "Speaking Arabic then English…",
+    installBtn: "Install app",
+    installTitle: "Install the app on your phone",
+    installText: "Add “Arabic Lessons” to your home screen and use it as a full app — even offline.",
+    installCta: "📲 Install now",
+    installIos: "iPhone / iPad (Safari): tap Share ⬆️, then “Add to Home Screen” → “Add”.",
+    installAndroid: "Android (Chrome): open the ⋮ menu, then “Install app” or “Add to Home screen”.",
+    installDesktop: "Open the site on your phone in Chrome or Safari, then choose “Install app”.",
+    installDone: "The app is installed on your device 👍",
+    installAlready: "The app is already installed 👍",
+    installReady: "The app works offline",
+    errorGeneric: "Something went wrong — please reload the page.",
     stop: "Stop",
     quizScore: "Score",
     quizQ: "Question",
@@ -225,6 +257,7 @@ const state = {
   accent: "green",
   showTrans: true,
   showTr: true,
+  speakMode: "both",      // "both" | "ar" | "en" — النطق بالعربية والإنجليزية معاً
   filterLevel: "all",
   search: "",
   completed: {},          // { lessonId: { best: 0..100, done: bool } }
@@ -241,6 +274,7 @@ function loadState() {
       if (s.accent) state.accent = s.accent;
       if (typeof s.showTrans === "boolean") state.showTrans = s.showTrans;
       if (typeof s.showTr === "boolean") state.showTr = s.showTr;
+      if (s.speakMode) state.speakMode = s.speakMode;
       if (s.completed) state.completed = s.completed;
     }
   } catch (e) { /* ignore */ }
@@ -250,6 +284,7 @@ function saveState() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
       lang: state.lang, theme: state.theme, accent: state.accent,
       showTrans: state.showTrans, showTr: state.showTr,
+      speakMode: state.speakMode,
       completed: state.completed
     }));
   } catch (e) { /* ignore */ }
@@ -262,13 +297,13 @@ const t = (key) => (UI[state.lang] && UI[state.lang][key]) || key;
 const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const getLesson = (id) => LESSONS.find(l => l.id === id);
 
-function toast(msg) {
+function toast(msg, ms) {
   const el = $("#toast");
   if (!el) return;
   el.textContent = msg;
   el.classList.add("show");
   clearTimeout(el._t);
-  el._t = setTimeout(() => el.classList.remove("show"), 2200);
+  el._t = setTimeout(() => el.classList.remove("show"), ms || 2200);
 }
 
 /* ---------------- Theme & Direction ---------------- */
@@ -302,56 +337,101 @@ function applyLang() {
   if (langBtn) langBtn.innerHTML = `<span>🌐</span> ${state.lang === "ar" ? "English" : "العربية"}`;
 }
 
-/* ---------------- Speech ---------------- */
+/* ---------------- Speech (النطق: العربية + English معاً) ---------------- */
+function speechSupported() {
+  return typeof window !== "undefined" &&
+    "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+}
+
 let voices = [];
 function initVoices() {
-  if (!("speechSynthesis" in window)) return;
-  voices = speechSynthesis.getVoices();
+  if (!speechSupported()) return;
+  try { voices = speechSynthesis.getVoices() || []; } catch (e) { voices = []; }
 }
-if ("speechSynthesis" in window) {
+if (speechSupported()) {
   initVoices();
-  speechSynthesis.onvoiceschanged = initVoices;
+  try { speechSynthesis.onvoiceschanged = initVoices; } catch (e) { /* ignore */ }
 }
-function arabicVoice() {
-  return voices.find(v => /^ar/i.test(v.lang)) || voices.find(v => /arabic/i.test(v.name));
+
+/* Best installed voice for a language ("ar" / "en"). */
+function pickVoice(prefix) {
+  try {
+    const re = new RegExp("^" + prefix, "i");
+    const word = prefix === "ar" ? "arabic" : "english";
+    return voices.find(v => v && re.test(v.lang || "")) ||
+           voices.find(v => v && new RegExp(word, "i").test(v.name || "")) ||
+           null;
+  } catch (e) { return null; }
 }
-function speak(text, btn) {
-  if (!("speechSynthesis" in window)) { toast(t("toastNoSpeech")); return; }
-  speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = "ar-SA";
-  u.rate = 0.82;
-  const v = arabicVoice();
-  if (v) u.voice = v;
-  if (btn) {
-    btn.classList.add("playing");
-    u.onend = u.onerror = () => btn.classList.remove("playing");
-  }
-  speechSynthesis.speak(u);
+
+/* The label of the current pronunciation mode. */
+function speakModeLabel() {
+  const mode = state.speakMode || "both";
+  return t(mode === "ar" ? "speakArOnly" : mode === "en" ? "speakEnOnly" : "speakBoth");
 }
-function speakDialogue(lesson, btn) {
-  if (!("speechSynthesis" in window)) { toast(t("toastNoSpeech")); return; }
-  if (btn.classList.contains("playing")) { speechSynthesis.cancel(); btn.classList.remove("playing"); return; }
-  speechSynthesis.cancel();
-  btn.classList.add("playing");
-  btn.dataset.orig = btn.innerHTML;
-  btn.innerHTML = `⏹ ${t("stop")}`;
-  let i = 0;
-  const next = () => {
-    if (i >= lesson.dialogue.length) {
-      btn.classList.remove("playing");
-      btn.innerHTML = btn.dataset.orig;
-      return;
-    }
-    const line = lesson.dialogue[i++];
-    const u = new SpeechSynthesisUtterance(line.ar);
-    u.lang = "ar-SA"; u.rate = 0.8;
-    const v = arabicVoice(); if (v) u.voice = v;
-    u.onend = next;
-    u.onerror = next;
-    speechSynthesis.speak(u);
+
+/* Which utterances to play for a word/phrase, according to the chosen mode. */
+function speechItems(arText, enText) {
+  const mode = state.speakMode || "both";
+  const items = [];
+  if (mode !== "en" && arText) items.push({ text: String(arText), lang: "ar-SA", rate: 0.82, prefix: "ar" });
+  if (mode !== "ar" && enText) items.push({ text: String(enText), lang: "en-US", rate: 0.9, prefix: "en" });
+  if (!items.length && arText) items.push({ text: String(arText), lang: "ar-SA", rate: 0.82, prefix: "ar" });
+  return items;
+}
+
+/* Queue utterances so they play one after another (Arabic, then English). */
+function queueSpeech(items, btn, done) {
+  const list = (items || []).filter(x => x && x.text);
+  const finish = () => {
+    if (btn) btn.classList.remove("playing");
+    if (typeof done === "function") done();
   };
-  next();
+  if (!list.length) { finish(); return; }
+  let i = 0;
+  const step = () => {
+    if (i >= list.length) { finish(); return; }
+    const item = list[i++];
+    let u;
+    try { u = new SpeechSynthesisUtterance(item.text); } catch (e) { step(); return; }
+    u.lang = item.lang;
+    u.rate = item.rate || 0.85;
+    const v = pickVoice(item.prefix);
+    if (v) u.voice = v;
+    u.onend = step;
+    u.onerror = step;
+    try { speechSynthesis.speak(u); } catch (e) { step(); }
+  };
+  step();
+}
+
+/* One word/phrase → Arabic then English (both languages together). */
+function speak(text, btn, enText) {
+  if (!speechSupported()) { toast(t("toastNoSpeech")); return; }
+  const items = speechItems(text, enText);
+  try { speechSynthesis.cancel(); } catch (e) { /* ignore */ }
+  if (btn) btn.classList.add("playing");
+  queueSpeech(items, btn);
+}
+
+/* The whole dialogue → every line in Arabic then in English. */
+function speakDialogue(lesson, btn) {
+  if (!speechSupported()) { toast(t("toastNoSpeech")); return; }
+  if (btn.classList.contains("playing")) {
+    try { speechSynthesis.cancel(); } catch (e) { /* ignore */ }
+    btn.classList.remove("playing");
+    btn.innerHTML = btn.dataset.orig || btn.innerHTML;
+    return;
+  }
+  try { speechSynthesis.cancel(); } catch (e) { /* ignore */ }
+  btn.classList.add("playing");
+  btn.dataset.orig = btn.dataset.orig || btn.innerHTML;
+  btn.innerHTML = `⏹ ${t("stop")}`;
+  const items = [];
+  (lesson.dialogue || []).forEach(line => {
+    speechItems(line.ar, line.en).forEach(x => items.push(x));
+  });
+  queueSpeech(items, btn, () => { btn.innerHTML = btn.dataset.orig; });
 }
 
 /* ---------------- Progress ---------------- */
@@ -458,6 +538,24 @@ function renderHome() {
               <h3>${t(a)}</h3>
               <p>${t(b)}</p>
             </div>`).join("")}
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTALL (PWA) — التثبيت على الجوال -->
+    <section class="section install-section">
+      <div class="wrap">
+        <div class="install-card reveal">
+          <div class="install-icon">📲</div>
+          <div class="install-body">
+            <h2>${t("installTitle")}</h2>
+            <p>${t("installText")}</p>
+            <div class="install-steps">
+              <span>🍏 ${t("installIos")}</span>
+              <span>🤖 ${t("installAndroid")}</span>
+            </div>
+          </div>
+          <button class="btn btn-primary install-cta" type="button" data-install>${t("installCta")}</button>
         </div>
       </div>
     </section>
@@ -574,6 +672,7 @@ function renderLesson(id) {
         <button class="tool-toggle ${state.showTrans ? "on" : ""}" id="ttTrans">🔤 ${t("toggleTrans")}</button>
         <button class="tool-toggle ${state.showTr ? "on" : ""}" id="ttTr">🅰️ ${t("toggleTr")}</button>
         <button class="tool-toggle" id="playAll">🔊 ${t("speakAll")}</button>
+        <button class="tool-toggle" id="speakMode" title="${t("speakModeLabel")}">🗣️ ${speakModeLabel()}</button>
         ${prog ? `<span class="score-pill">${t("quizScore")}: ${prog.best}%</span>` : ""}
       </div>
 
@@ -587,7 +686,7 @@ function renderLesson(id) {
         <div class="dialogue">
           ${l.dialogue.map((d, i) => `
             <div class="line ${i % 2 ? "right" : ""}">
-              <button class="speak-btn" data-speak="${esc(d.ar)}" title="🔊">🔊</button>
+              <button class="speak-btn" data-speak="${esc(d.ar)}" data-speak-en="${esc(d.en)}" title="🔊">🔊</button>
               <div class="bubble">
                 <div class="who">${esc(d.sp[state.lang])}</div>
                 <div class="ar">${esc(d.ar)}</div>
@@ -602,7 +701,7 @@ function renderLesson(id) {
         <div class="vocab-grid">
           ${l.vocab.map(v => `
             <div class="vocab-card">
-              <button class="speak-btn" data-speak="${esc(v.ar)}">🔊</button>
+              <button class="speak-btn" data-speak="${esc(v.ar)}" data-speak-en="${esc(v.en)}">🔊</button>
               <div class="vc-txt">
                 <div class="vc-ar">${esc(v.ar)}</div>
                 <div class="vc-tr">${esc(v.tr)}</div>
@@ -647,6 +746,16 @@ function bindLesson(l) {
 
   // play all
   $("#playAll").addEventListener("click", (e) => speakDialogue(l, e.currentTarget));
+
+  // pronunciation language: both → Arabic → English
+  const sm = $("#speakMode");
+  if (sm) sm.addEventListener("click", (e) => {
+    const order = ["both", "ar", "en"];
+    state.speakMode = order[(order.indexOf(state.speakMode) + 1) % order.length];
+    saveState();
+    e.currentTarget.innerHTML = `🗣️ ${speakModeLabel()}`;
+    toast(t("speakModeLabel") + ": " + speakModeLabel());
+  });
 }
 
 /* ---------------- Quiz ---------------- */
@@ -771,11 +880,58 @@ function observeReveal() {
   $$(".reveal").forEach(el => observer.observe(el));
 }
 
+/* ---------------- Install (PWA) — تثبيت التطبيق ---------------- */
+/* The event is captured here too, in case index.html did not get it first. */
+window.addEventListener("beforeinstallprompt", (e) => {
+  try { e.preventDefault(); } catch (_) {}
+  window.__deferredInstallPrompt = e;
+});
+window.addEventListener("appinstalled", () => {
+  window.__deferredInstallPrompt = null;
+  try { toast(t("installDone")); } catch (_) {}
+});
+
+function isStandalone() {
+  try {
+    return window.matchMedia("(display-mode: standalone)").matches ||
+           window.matchMedia("(display-mode: fullscreen)").matches ||
+           window.navigator.standalone === true;
+  } catch (e) { return false; }
+}
+function isIOS() {
+  const ua = navigator.userAgent || "";
+  return /iPad|iPhone|iPod/.test(ua) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+}
+function isMobile() {
+  return /Android|iPhone|iPad|iPod|Mobile|Windows Phone/i.test(navigator.userAgent || "");
+}
+
+function installPWA() {
+  const deferred = window.__deferredInstallPrompt;
+  if (deferred && typeof deferred.prompt === "function") {
+    try {
+      deferred.prompt();
+      if (deferred.userChoice && deferred.userChoice.then) {
+        deferred.userChoice.then(() => { window.__deferredInstallPrompt = null; }).catch(() => {});
+      }
+      return;
+    } catch (e) { /* fall through to instructions */ }
+  }
+  if (isStandalone()) { toast(t("installAlready")); return; }
+  const guide = isIOS() ? t("installIos") : (isMobile() ? t("installAndroid") : t("installDesktop"));
+  toast(guide, 7000);
+}
+
 /* ---------------- Global click routing ---------------- */
 document.addEventListener("click", (e) => {
-  // speak buttons (single global delegation)
+  // speak buttons (single global delegation) — Arabic then English
   const speaker = e.target.closest("[data-speak]");
-  if (speaker) { speak(speaker.dataset.speak, speaker); return; }
+  if (speaker) { speak(speaker.dataset.speak, speaker, speaker.dataset.speakEn || ""); return; }
+
+  // install app (PWA) — header button and home-page card
+  const installer = e.target.closest("[data-install]");
+  if (installer) { e.preventDefault(); installPWA(); return; }
 
   const go = e.target.closest("[data-go]");
   if (go) {
@@ -844,11 +1000,26 @@ window.addEventListener("hashchange", () => { if (window.speechSynthesis) window
 
 /* ---------------- Boot ---------------- */
 function boot() {
-  loadState();
-  applyTheme();
-  applyAccent();
-  applyLang();
-  bindChrome();
-  render();
+  try {
+    loadState();
+    applyTheme();
+    applyAccent();
+    applyLang();
+    bindChrome();
+    render();
+  } catch (err) {
+    /* احفظ التطبيق من الأخطاء: لا نتوقف عن العمل بسبب خطأ واحد */
+    try { console.error(err); } catch (_) {}
+    try { toast(t("errorGeneric"), 5000); } catch (_) {}
+  }
 }
+
+/* Friendly guard instead of a silent crash. */
+window.addEventListener("error", (e) => {
+  if (e && (e.message || e.error)) { try { toast(t("errorGeneric")); } catch (_) {} }
+});
+window.addEventListener("unhandledrejection", () => {
+  try { toast(t("errorGeneric")); } catch (_) {}
+});
+
 document.addEventListener("DOMContentLoaded", boot);
